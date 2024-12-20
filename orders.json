@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "customerId": 2,
+    "products": { "ids": [] },
+    "status": "pending",
+    "timeCreated": "2024-9-26",
+    "lastModified": "2024-9-30"
+  }
+]
