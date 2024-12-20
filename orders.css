@@ -1,0 +1,43 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #e9e6e4;
+}
+
+#your-orders-header {
+  background-color: #b89f8f;
+  margin: auto;
+  font-size: 50px;
+  text-align: center;
+  width: 50%;
+  height: 100px;
+  border-radius: 15px;
+}
+
+#orders-header {
+  margin: auto;
+  text-align: center;
+  margin-top: 10px;
+  background-color: #b89f8f;
+  font-size: 30px;
+  width: 85%;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.orders-link {
+  margin: 0px;
+  padding: 10px 70px;
+  display: inline-block;
+  text-decoration: underline;
+}
+
+#orders {
+  margin: auto;
+  margin-top: 20px;
+  background-color: #b89f8f;
+  text-align: left;
+  width: 95%;
+  height: 200px;
+  border-radius: 20px;
+}
