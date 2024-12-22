@@ -2,8 +2,36 @@
   {
     "id": 1,
     "customerId": 2,
-    "products": { "ids": [] },
+    "productId": 5,
+    "quantatiy": 1,
     "status": "pending",
+    "timeCreated": "2024-9-26",
+    "lastModified": "2024-9-30"
+  },
+  {
+    "id": 2,
+    "customerId": 1,
+    "productId": 3,
+    "quantatiy": 1,
+    "status": "approved",
+    "timeCreated": "2024-9-26",
+    "lastModified": "2024-9-30"
+  },
+  {
+    "id": 3,
+    "customerId": 1,
+    "productId": 1,
+    "quantatiy": 2,
+    "status": "decliend",
+    "timeCreated": "2024-9-26",
+    "lastModified": "2024-9-30"
+  },
+  {
+    "id": 4,
+    "customerId": 2,
+    "productId": 7,
+    "quantatiy": 1,
+    "status": "previous",
     "timeCreated": "2024-9-26",
     "lastModified": "2024-9-30"
   }

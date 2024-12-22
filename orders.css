@@ -38,6 +38,17 @@ body {
   background-color: #b89f8f;
   text-align: left;
   width: 95%;
-  height: 200px;
+  height: auto;
   border-radius: 20px;
+}
+
+.product {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #332f2c;
+  height: 100px;
+}
+
+.productImg {
+  height: 90%;
 }

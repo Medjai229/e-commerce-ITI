@@ -1,55 +1,92 @@
-var orders = document.getElementById('orders');
+// localStorage.clear();
+var ordersData = JSON.parse(localStorage.getItem('orders'));
+var productsData = JSON.parse(localStorage.getItem('products'));
+var usersData = JSON.parse(localStorage.getItem('users'));
 
-var pending = [];
-var accepted = [];
-var rejected = [];
-var previous = [];
-// fetch products
+if (!ordersData) {
+  fetch('./orders.json')
+    .then((res) => res.json())
+    .then((data) => {
+      localStorage.setItem('orders', JSON.stringify(data));
+      ordersData = data;
+      console.log('Fetched and stored orders:', ordersData);
+    })
+    .catch((error) => console.error('Unable to fetch data:', error));
+} else {
+  console.log('Loaded from localStorage:', ordersData);
+}
+
+var orders = document.getElementById('orders');
+var ordersHeaders = document.querySelectorAll('.orders-link');
+console.log(ordersData.length);
+console.log(productsData.length);
+
+var productHTML;
+
+showPending();
+
+ordersHeaders[0].addEventListener('click', () => {
+  showPending();
+});
+ordersHeaders[1].addEventListener('click', () => {
+  showAccepted();
+});
 
 // Pending products
 function showPending() {
-  if (product.status === 'pending') {
-    pending.append(product);
+  productHTML = '';
+  for (var i = 0; i < ordersData.length; i++) {
+    if (ordersData[i].status === 'pending') {
+      productHTML += `
+      <div class="product">
+        <img
+          class="productImg"
+          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          alt=""
+        />
+        <h4>Prdocut Name</h4>
+        <h5>Orderd on:</h5>
+      </div>
+      `;
+    }
   }
-
-  for (const product of pending) {
-    var divProduct = document.createElement(div);
-    orders.appendChild(divProduct);
-  }
+  orders.innerHTML = productHTML;
 }
-
-// Accepted products
 function showAccepted() {
-  if (product.status === 'accepted') {
-    accepted.append(product);
+  productHTML = '';
+  for (var i = 0; i < ordersData.length; i++) {
+    if (ordersData[i].status === 'approved') {
+      productHTML += `
+      <div class="product">
+        <img
+          class="productImg"
+          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          alt=""
+        />
+        <h4>Prdocut Name</h4>
+        <h5>Accepted on:</h5>
+      </div>
+      `;
+    }
   }
-
-  for (const product of accepted) {
-    var divProduct = document.createElement(div);
-    orders.appendChild(divProduct);
-  }
+  orders.innerHTML = productHTML;
 }
-
-// Rejected Orders
 function showRejected() {
-  if (product.status === 'rejected') {
-    rejected.append(product);
+  productHTML = '';
+  for (var i = 0; i < ordersData.length; i++) {
+    if (ordersData[i].status === 'rejected') {
+      productHTML += `
+      <div class="product">
+        <img
+          class="productImg"
+          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          alt=""
+        />
+        <h4>Prdocut Name</h4>
+        <h5>Orderd on:</h5>
+      </div>
+      `;
+    }
   }
-
-  for (const product of rejected) {
-    var divProduct = document.createElement(div);
-    orders.appendChild(divProduct);
-  }
-}
-
-// Previous orders
-function showPrevious() {
-  if (product.status === 'previous') {
-    previous.append(product);
-  }
-
-  for (const product of previous) {
-    var divProduct = document.createElement(div);
-    orders.appendChild(divProduct);
-  }
+  orders.innerHTML = productHTML;
 }
