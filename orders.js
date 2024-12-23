@@ -31,6 +31,12 @@ ordersHeaders[0].addEventListener('click', () => {
 ordersHeaders[1].addEventListener('click', () => {
   showAccepted();
 });
+ordersHeaders[2].addEventListener('click', () => {
+  showRejected();
+});
+ordersHeaders[3].addEventListener('click', () => {
+  showPrevious();
+});
 
 // Pending products
 function showPending() {
@@ -71,6 +77,7 @@ function showAccepted() {
   }
   orders.innerHTML = productHTML;
 }
+
 function showRejected() {
   productHTML = '';
   for (var i = 0; i < ordersData.length; i++) {
@@ -83,7 +90,27 @@ function showRejected() {
           alt=""
         />
         <h4>Prdocut Name</h4>
-        <h5>Orderd on:</h5>
+        <h5>Rejected on:</h5>
+      </div>
+      `;
+    }
+  }
+  orders.innerHTML = productHTML;
+}
+
+function showPrevious() {
+  productHTML = '';
+  for (var i = 0; i < ordersData.length; i++) {
+    if (ordersData[i].status === 'previous') {
+      productHTML += `
+      <div class="product">
+        <img
+          class="productImg"
+          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          alt=""
+        />
+        <h4>Prdocut Name</h4>
+        <h5>Delevired on:</h5>
       </div>
       `;
     }
