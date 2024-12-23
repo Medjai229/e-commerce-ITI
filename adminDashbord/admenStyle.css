@@ -1,0 +1,274 @@
+#container {
+  display: flex;
+  flex-direction: row;
+}
+
+#container #base_menue {
+  background-color: white;
+  height: 100%;
+  width: 20%;
+}
+
+.logo {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+}
+#container #base_menue .logo img {
+  width: 100px;
+  height: 100px;
+  margin-left: 40px;
+  margin-top: 35px;
+}
+#container #base_menue #menue {
+  margin-left: 20px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  color: #6c5dd3;
+  cursor: pointer;
+}
+
+#menue li {
+  list-style: none;
+  padding: 15px 0;
+  transition: 0.3 ease;
+}
+
+#menue li i {
+  color: #6c5dd3;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  margin: 0 10px 0 25px;
+}
+
+#menue li i a {
+  text-decoration: none;
+  color: #6c5dd3;
+  font-weight: 300;
+  margin-left: 10px;
+  transition: 0.3 ease;
+}
+
+#menue li:hover {
+  cursor: pointer;
+  background-color: #1b1d21;
+}
+
+#menue li i:hover i,
+#menue li i:hover a {
+  color: white;
+}
+
+/* styling the img of the admin to singout */
+
+#container #base_menue #menue h3 img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #6c5dd3;
+  bottom: 0;
+}
+
+.sign_out {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.sign_out .admin_name {
+  padding-left: 10px;
+}
+.fa-solid {
+  padding: 5px;
+  color: gray;
+}
+
+.sign_out:hover {
+  cursor: pointer;
+  background-color: #1b1d21;
+}
+.sign_out:hover h3 {
+  color: white;
+  cursor: pointer;
+}
+
+#page {
+  background-color: whitesmoke;
+  width: 80%;
+}
+
+/* styling the nav bar of the page */
+#nav_bar {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #6c5dd3;
+  border-bottom: 2px solid #6c5dd3;
+}
+
+.fa-bars {
+  color: #ffa2c0;
+  cursor: pointer;
+}
+.search_cotainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 14px;
+  border: 2px solid #ffa2c0;
+  border-radius: 25px;
+  transform: translateX(-240px);
+}
+
+.search_cotainer input {
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
+
+.search_box {
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+  position: relative;
+  padding: 3px 20px;
+  background-color: #6c5dd3;
+  color: white;
+}
+
+.profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.notify_icon {
+  color: #ffa2c0;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* style addcategory and add products */
+.category_products {
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+.action-button {
+  margin-left: 10px;
+  padding: 10px 40px;
+  background-color: #0049c6;
+  border-radius: 20px;
+  font-size: 15px;
+  color: white;
+}
+
+.table-container {
+  width: 100%;
+}
+
+.styled-table {
+  margin-right: 0; /* Optional: Ensures no unintended margin */
+  border-collapse: collapse;
+  border: 2px solid #0049c6;
+  width: 100%;
+}
+
+.styled-table th,
+.styled-table td {
+  border: 1px solid #0049c6;
+  padding: 8px;
+  text-align: left;
+}
+
+.styled-table th {
+  background-color: #f4f4f4;
+  color: #0049c6;
+}
+
+tr:nth-child(even) {
+  background-color: #c09e94;
+}
+
+.adit_delete {
+  display: flex;
+  justify-content: space-around;
+}
+.adit_delete button {
+  border-radius: 20px;
+  padding: 8px;
+  background-color: #0049c6;
+  color: white;
+  width: 70px;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  color: black;
+}
+
+.display {
+  font-size: 40px;
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #6c5dd3;
+  border: 2px solid #1d2d25;
+  border-radius: 6px;
+  color: white;
+}
+
+/* style the popup add product */
+
+.popup {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  padding: 30px;
+  background: #ffa2c0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  text-align: center;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+.popup .close-btn {
+  background: #0049c6;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+span {
+  color: #6c5dd3;
+  font-family: "Arial Narrow Bold";
+  font-size: 17px;
+}

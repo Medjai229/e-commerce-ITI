@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin DashBord</title>
+    <link rel="stylesheet" href="./admenStyle.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="base_menue">
+        <div class="logo">
+          <img src="../images/f3m/2.png" alt="" />
+        </div>
+        <div id="menue">
+          <!-- <h3><i class="fa-solid fa-layer-group"></i>Dashboard</h3>
+          <h3><i class="fa-solid fa-shop"></i>Products</h3>
+          <h3></i>Users</h3>
+          <h3><i class="fa-solid fa-table"></i>Categores</h3> -->
+
+          <li>
+            <i class="fa-solid fa-shop"><a href="#">Products</a></i>
+          </li>
+          <li>
+            <i class="fa-solid fa-user"><a href="#">Users</a></i>
+          </li>
+          <li>
+            <i class="fa-solid fa-layer-group"><a href="#">Orders</a></i>
+          </li>
+          <li style="visibility: hidden"></li>
+
+          <li style="visibility: hidden"></li>
+
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <div class="sign_out">
+            <h3><img src="../images/1.png" alt="" /></h3>
+            <h3 class="admin_name">
+              Name User <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div id="page">
+        <header id="nav_bar">
+          <i class="fa-solid fa-bars"></i>
+          <div class="search_cotainer">
+            <i class="fa-solid fa-magnifying-glass search_icon"></i>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="search"
+              class="search_box"
+            />
+          </div>
+          <div class="profile">
+            <i class="fa-solid fa-bell notify_icon"></i>
+            <img src="../images/2.png" alt="" class="admin_photo" />
+          </div>
+        </header>
+        <section id="">
+          <div class="category_products">
+            <button class="action-button" onclick="openPopUp()">
+              Add Products
+            </button>
+          </div>
+          <div class="display">Display All Products</div>
+          <div class="table-container">
+            <table id="product_table" class="styled-table"></table>
+          </div>
+          <div id="popup" class="popup">
+            <h2>Add Product</h2>
+            <label for="addtitle">Title</label>
+            <input type="text" id="addtitle" />
+            <span></span>
+            <br />
+            <br />
+            <label for="addprice">price</label>
+            <input type="text" id="addprice" />
+            <span></span>
+            <label for="category">category</label>
+            <input type="text" id="category" />
+            <span></span>
+            <label for="imgg">image</label>
+            <input type="file" id="img" />
+            <span></span>
+            <label for="descc">Description</label>
+            <input type="text" id="descc" />
+            <span></span>
+            <br />
+            <br />
+            <button class="close-btn" id="closePopupBtn" onclick="addProduct()">
+              Add
+            </button>
+          </div>
+          <div id="popupUpdate" class="popup">
+            <h2>Update Product</h2>
+            <label for="uptitle">Title</label>
+            <input type="text" id="uptitle" />
+            <span></span>
+            <br />
+            <br />
+            <label for="upprice">price</label>
+            <input type="text" id="upprice" />
+            <span></span>
+            <label for="rating">Rating</label>
+            <input type="number" id="ratting" />
+            <span></span>
+            <label for="catt">Category</label>
+            <input type="text" id="catt" />
+            <span></span>
+            <label for="stock">Stock</label>
+            <input type="number" id="stok" />
+            <span></span>
+            <br />
+            <br />
+            <button
+              class="close-btn"
+              id="closePopupBtn"
+              onclick="updatProduct()"
+            >
+              Update
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/3597cc1bad.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./adminScript.js"></script>
+  </body>
+</html>
