@@ -46,7 +46,8 @@ function lastid(ele) {
 // }
 
 function getAllProducts(elem) {
-  var note = `  <thead>
+  var note = `  
+  <thead>
                 <tr>
                   <th>Title</th>
                   <th>Price</th>

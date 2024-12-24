@@ -55,28 +55,45 @@
         <header id="nav_bar">
           <i class="fa-solid fa-bars"></i>
           <div class="search_cotainer">
-            <i class="fa-solid fa-magnifying-glass search_icon"></i>
             <input
+              class="search_box"
               type="text"
               name="search"
               id="search"
               placeholder="search"
-              class="search_box"
             />
+            <button type="submit" class="search-btn">
+              <i class="fa-solid fa-magnifying-glass search_icon"></i>
+            </button>
           </div>
           <div class="profile">
             <i class="fa-solid fa-bell notify_icon"></i>
             <img src="../images/2.png" alt="" class="admin_photo" />
           </div>
         </header>
-        <section id="">
+        <section id="the_page">
+          <div id="myHeader">
+            <h1>Dashboard</h1>
+            <ul class="breadcrumb">
+              <li>
+                <a href="#">Dashboard</a>
+              </li>
+              <i class="fa-solid fa-arrow-right"></i>
+              <li>
+                <a class="active" href="#">Home</a>
+              </li>
+            </ul>
+          </div>
           <div class="category_products">
             <button class="action-button" onclick="openPopUp()">
               Add Products
             </button>
           </div>
-          <div class="display">Display All Products</div>
+
           <div class="table-container">
+            <div class="head">
+              <h3>Display All Products</h3>
+            </div>
             <table id="product_table" class="styled-table"></table>
           </div>
           <div id="popup" class="popup">
