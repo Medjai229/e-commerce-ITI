@@ -8,7 +8,7 @@ if (localStorage.getItem('cart')) {
 }
 
 // * Set cart for testing
-cart = [1, 5, 9, 3, 4];
+// cart = [1, 5, 9, 3, 4];
 
 let productList;
 // * Get product list from online API
@@ -28,7 +28,7 @@ httpReq.open('GET', 'https://fakestoreapi.com/products');
 httpReq.send(); */
 
 // * Get product list from api.json file
-fetch('api.json')
+fetch('http://localhost:3000/products')
   .then((response) => response.json())
   .then((data) => {
     productList = data;
@@ -100,12 +100,13 @@ function displayCart(cart) {
     quantityLabel.textContent = 'Quantity';
     const quantityInput = document.createElement('input');
     quantityInput.classList.add('quantity');
+    quantityInput.id = `quantity${product.id}`;
     quantityInput.list = 'quantitylist';
     quantityInput.name = 'quantity';
     quantityInput.value = 1;
     idCount[product.id] = product.price;
     quantityInput.addEventListener('change', (e) => {
-      console.log(e.target.value, product.price);
+      // console.log(e.target.value, product.price);
 
       idCount[product.id] = e.target.value * product.price;
       calculateTotal();
@@ -133,14 +134,14 @@ function displayCart(cart) {
     remove.classList.add('remove');
     remove.textContent = 'Remove';
     remove.addEventListener('click', (e) => {
-      console.log(cart);
+      // console.log(cart);
       cart.splice(cart.indexOf(product.id), 1);
       localStorage.setItem('cart', JSON.stringify(cart));
       idCount[product.id] = 0;
       calculateTotal();
       // Remove the created div
       e.target.parentElement.remove();
-      console.log(cart);
+      // console.log(cart);
     });
 
     const br = document.createElement('br');
@@ -166,5 +167,29 @@ function calculateTotal() {
     totalPrice += idCount[key];
     totalPrice = Math.round(totalPrice * 100) / 100;
     total.textContent = totalPrice + '$';
+  }
+}
+
+function checkout() {
+  const date = new Date();
+  for (let item of cart) {
+    // console.log(item);
+    const elem = document.getElementById(`quantity${item}`);
+    fetch('http://localhost:3000/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        customerId: 1, // !Replace with the actual customer ID
+        productId: item,
+        quantity: parseInt(elem.value),
+        status: 'pending',
+        timeCreated: date.toLocaleString(),
+        lastModified: date.toLocaleString(),
+      }),
+    })
+      .then((res) => res.json())
+      .then((location.href = 'orders.html'));
   }
 }
