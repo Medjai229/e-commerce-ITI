@@ -32,3 +32,21 @@ body {
 .price {
   float: left;
 }
+.addtocart {
+  background-color: lightgreen;
+  border: none;
+  width: 95%;
+  height: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.removefromcart {
+  background-color: lightcoral;
+  border: none;
+  width: 95%;
+  height: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

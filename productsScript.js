@@ -1,14 +1,21 @@
-const http = new XMLHttpRequest();
-http.open('GET', 'productData.json');
-http.send();
+// const http = new XMLHttpRequest();
+// http.open('GET', 'productData.json');
+// http.send();
+// http.addEventListener('readystatechange', function () {
+//   if (http.readyState == 4 && http.status == 200) {
+//     allProducts = JSON.parse(http.response);
+//     // console.log(allProducts);
+//     display(allProducts);
+//   }
+// });
 let allProducts;
-http.addEventListener('readystatechange', function () {
-  if (http.readyState == 4 && http.status == 200) {
-    allProducts = JSON.parse(http.response);
-    // console.log(allProducts);
+fetch('http://localhost:3000/products')
+  .then((response) => response.json())
+  .then((data) => {
+    allProducts = data;
     display(allProducts);
-  }
-});
+  })
+  .catch((error) => console.error('Error fetching product list:', error));
 
 let cart = [];
 if (localStorage.getItem('cart')) {
@@ -21,6 +28,7 @@ if (localStorage.getItem('cart')) {
 function display(products) {
   var product = '';
   for (let index = 0; index < products.length; index++) {
+    // !redesign the button so it starts green if in cart
     product += `
      <div class="pro">
                 <img src="${products[index].image}" alt="">

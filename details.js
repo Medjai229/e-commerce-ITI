@@ -17,9 +17,9 @@ httpId.open('GET', 'https://fakestoreapi.com/products/' + id);
 httpId.send();
  */
 
-// * Get product from api.json file
+// * Get product from json-server file
 let productList;
-fetch('api.json')
+fetch('http://localhost:3000/products')
   .then((response) => response.json())
   .then((data) => {
     productList = data;
@@ -33,6 +33,7 @@ fetch('api.json')
 const main = document.getElementById('main');
 
 function displayItem(product) {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
   // console.log(product);
   const productDiv = document.createElement('div');
   productDiv.classList.add('cartitem');
@@ -57,12 +58,40 @@ function displayItem(product) {
 
   const br = document.createElement('br');
 
+  const addToCart = document.createElement('button');
+  if (cart.includes(product.id)) {
+    addToCart.textContent = 'Remove from cart';
+    addToCart.classList.remove('addtocart');
+    addToCart.classList.add('removefromcart');
+  } else {
+    addToCart.textContent = 'Add to cart';
+    addToCart.classList.remove('removefromcart');
+    addToCart.classList.add('addtocart');
+  }
+  addToCart.addEventListener('click', () => {
+    if (cart.includes(product.id)) {
+      cart.splice(cart.indexOf(product.id), 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      addToCart.textContent = 'Add to cart';
+      addToCart.classList.remove('removefromcart');
+      addToCart.classList.add('addtocart');
+    } else {
+      cart.push(product.id);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      addToCart.textContent = 'Remove from cart';
+      addToCart.classList.remove('addtocart');
+      addToCart.classList.add('removefromcart');
+    }
+  });
+
   productDiv.appendChild(image);
   productDiv.appendChild(title);
   productDiv.appendChild(price);
   productDiv.appendChild(br);
   productDiv.appendChild(category);
   productDiv.appendChild(description);
+  productDiv.appendChild(br);
+  productDiv.appendChild(addToCart);
 
   main.appendChild(productDiv);
 }
