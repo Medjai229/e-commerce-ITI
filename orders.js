@@ -1,4 +1,5 @@
 let ordersData;
+let userId = sessionStorage.getItem('id') || 1;
 
 addEventListener('load', () => {
   fetch('http://localhost:3000/orders', { method: 'GET' })
@@ -31,10 +32,14 @@ ordersHeaders[3].addEventListener('click', () => {
 
 // Pending products
 function showPending() {
+  console.log(ordersData[0].id);
   console.log('pending working');
   productHTML = '';
   for (var i = 0; i < ordersData.length; i++) {
-    if (ordersData[i].status === 'pending') {
+    if (
+      ordersData[i].status === 'pending' &&
+      ordersData[i].customerId === userId
+    ) {
       productHTML += `
       <div class="product">
       <img
@@ -55,7 +60,10 @@ function showAccepted() {
   console.log(ordersData);
   productHTML = '';
   for (var i = 0; i < ordersData.length; i++) {
-    if (ordersData[i].status === 'approved') {
+    if (
+      ordersData[i].status === 'approved' &&
+      ordersData[i].customerId === userId
+    ) {
       productHTML += `
       <div class="product">
       <img
@@ -76,7 +84,10 @@ function showRejected() {
   console.log('rejected working');
   productHTML = '';
   for (var i = 0; i < ordersData.length; i++) {
-    if (ordersData[i].status === 'decliend') {
+    if (
+      ordersData[i].status === 'decliend' &&
+      ordersData[i].customerId === userId
+    ) {
       productHTML += `
       <div class="product">
       <img
@@ -97,7 +108,10 @@ function showPrevious() {
   console.log('previous working');
   productHTML = '';
   for (var i = 0; i < ordersData.length; i++) {
-    if (ordersData[i].status === 'previous') {
+    if (
+      ordersData[i].status === 'previous' &&
+      ordersData[i].customerId === userId
+    ) {
       productHTML += `
       <div class="product">
         <img
