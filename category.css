@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'sparten';
+}
+
+#header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  background-color: #ffa2fa;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+  transition: 0.2 ease;
+  z-index: 999;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#navbar li {
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+}
+
+#navbar li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  transition: 0.3 ease;
+}
+
+#navbar li a:hover {
+  color: #6c5dd3;
+}
+
+#navbar li a.active {
+  color: #6c5dd3;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+  position: absolute;
+  content: '';
+  width: 30%;
+  height: 2px;
+  background-color: #6c5dd3;
+  bottom: -4px;
+  left: 20px;
+}
+
+#banner {
+  height: 310px;
+  width: 100%;
+}
+#banner img {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+}
+#left {
+  position: relative;
+  background-color: rgb(124, 124, 245);
+  float: left;
+  width: 25%;
+  height: 600px;
+  font-size: 30px;
+}
+#right {
+  position: relative;
+  background-color: rgb(245, 148, 130);
+  float: right;
+  width: 75%;
+  height: 600px;
+}
+
+div.product {
+  float: left;
+  width: 28%;
+  height: 400px;
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #d5b09c;
+}
+
+.image {
+  width: 80%;
+  height: 200px;
+  margin: auto;
+  object-fit: contain;
+}
+
+.price {
+  float: left;
+}
+
+.reviews {
+  float: right;
+}
+
+.addtocart {
+  background-color: lightgreen;
+  border: none;
+  width: 95%;
+  height: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.removefromcart {
+  background-color: lightcoral;
+  border: none;
+  width: 95%;
+  height: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
