@@ -171,6 +171,12 @@ function calculateTotal() {
 }
 
 function checkout() {
+  const customerId = sessionStorage.getItem('id') || 1024;
+  // !Enable login
+  // if (!customerId) {
+  //   open('login.html', '_self');
+  //   return;
+  // }
   const date = new Date();
   for (let item of cart) {
     // console.log(item);
@@ -181,7 +187,7 @@ function checkout() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        customerId: 1, // !Replace with the actual customer ID
+        customerId: customerId,
         productId: item,
         quantity: parseInt(elem.value),
         status: 'pending',

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Category</title>
   <link rel="stylesheet" href="./category.css">
-  <script src="./category.js"></script>
+  <script src="./category.js" defer></script>
 </head>
 <body>
   <section id="header">
@@ -25,46 +25,47 @@
       <img src="./images/banner.jpg" alt="">
     </div>
     <br>
-    <div id="main">
-      <div id="left">
-        <h2>Categories</h2>
-        <ul>
-          <li><a href="#">Categories 1</a></li>
-          <li><a href="#">Categories 2</a></li>
-          <li><a href="#">Categories 3</a></li>
-        </ul>
-      </div>
-      <div id="right">
-        <h2>Products</h2>
-        <div class="product">
-          <img src="./images/1.png" alt="" class="image" /><br />
-          <h3>Title</h3>
-          <span class="price">$$$$</span>
-          <span class="reviews">Reviews 4/5</span>
-          <br />
-          <br />
-          <button class="addtocart">Add to cart</button>
+    <div id="right">
+      <section id="product" class="section_p1">
+        <div id="myProducts" class="product_container">
         </div>
-        <div class="product">
-          <img src="./images/1.png" alt="" class="image" /><br />
-          <h3>Title</h3>
-          <span class="price">$$$$</span>
-          <span class="reviews">Reviews 4/5</span>
-          <br />
-          <br />
-          <button class="addtocart">Add to cart</button>
-        </div>
-        <div class="product">
-          <img src="./images/1.png" alt="" class="image" /><br />
-          <h3>Title</h3>
-          <span class="price">$$$$</span>
-          <span class="reviews">Reviews 4/5</span>
-          <br />
-          <br />
-          <button class="addtocart">Add to cart</button>
-        </div>
-      </div>
+      </section>
     </div>
+    <div id="left">
+      <section id="category" class="section_p1">
+        <div id="myCategories">
+        </div>
+      </section>
+      <h2>Filters</h2>
+      <ul>
+        <li>By Categories<br>
+          <select name="categories" id="categories-select">
+            <option value="all">All</option>
+          </select>
+        </li>
+
+        <li>By price range<br>
+          <input type="text" id="price-range-small" value="0">
+          <span>=></span>
+          <input type="text" id="price-range-big" value="1000">
+        </li>
+        <li>By rating<br>
+        <select name="raiting" id="raiting-select">
+            <option value="all">All</option>
+            <option value="4">4 or higher</option>
+            <option value="3">3 or higher</option>
+            <option value="2">2 or higher</option>
+            <option value="1">1 or higher</option>
+          </select>
+        </li>
+      </ul>
+      <br>
+      <button id="apply-filters" onclick="filterItems()">Apply Filters</button>
+      <br>
+
+    </div>
+    <!-- <div id="main">
+    </div> -->
     <script
       src="https://kit.fontawesome.com/3597cc1bad.js"
       crossorigin="anonymous"
