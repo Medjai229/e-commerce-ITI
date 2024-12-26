@@ -24,32 +24,78 @@ if (localStorage.getItem('cart')) {
 } else {
   cart = [];
 }
-
+const allProductsDiv = document.getElementById('myProducts');
 function display(products) {
   var product = '';
   for (let index = 0; index < products.length; index++) {
     // !redesign the button so it starts green if in cart
-    product += `
-     <div class="pro">
-                <img src="${products[index].image}" alt="">
-                <div class="pro_data">
-                    <span>${products[index].category}</span>
-                    <h5>${products[index].title} </h5>
-                    <div class="star">
-                       
-                        ${createStarRating(products[index].rating.rate)}
-                    </div>
-                    <div class="price_card">
-                    <h4 id="price">$${products[index].price}</h4>
-                    <button onclick="toCart(${products[index].id},event)">
-                    <a id="thecart" ><i class="fa-solid fa-cart-shopping cart" ></i></a></button>
-                    </div>
-                </div>
-                
-            </div>
-    `;
+    // product += `
+    //  <div class="pro">
+    //             <img src="${products[index].image}" alt="">
+    //             <div class="pro_data">
+    //                 <span>${products[index].category}</span>
+    //                 <h5>${products[index].title} </h5>
+    //                 <div class="star">
+
+    //                     ${createStarRating(products[index].rating.rate)}
+    //                 </div>
+    //                 <div class="price_card">
+    //                 <h4 id="price">$${products[index].price}</h4>
+    //                 <button onclick="toCart(${products[index].id},event)">
+    //                 <a id="thecart" ><i class="fa-solid fa-cart-shopping cart" ></i></a></button>
+    //                 </div>
+    //             </div>
+
+    //         </div>
+    // `;
+    const productDiv = document.createElement('div');
+    productDiv.classList.add('pro');
+
+    const image = document.createElement('img');
+    image.src = products[index].image;
+
+    const proData = document.createElement('div');
+    proData.classList.add('pro_data');
+
+    const span = document.createElement('span');
+    span.textContent = products[index].category;
+
+    const h5 = document.createElement('h5');
+    h5.textContent = products[index].title;
+
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.innerHTML = createStarRating(products[index].rating.rate);
+
+    const priceCard = document.createElement('div');
+    priceCard.classList.add('price_card');
+
+    const price = document.createElement('h4');
+    price.id = 'price';
+    price.textContent = '$' + products[index].price;
+
+    const button = document.createElement('button');
+
+    button.setAttribute('onclick', `toCart(${products[index].id},event)`);
+    button.setAttribute('id', 'thecart');
+    const cartIcon = document.createElement('i');
+    cartIcon.classList.add('fa-solid', 'fa-cart-shopping', 'cart');
+    if (cart.includes(products[index].id)) {
+      cartIcon.style.backgroundColor = 'lightgreen';
+    }
+    button.appendChild(cartIcon);
+
+    proData.appendChild(span);
+    proData.appendChild(h5);
+    proData.appendChild(star);
+    proData.appendChild(priceCard);
+    priceCard.appendChild(price);
+    priceCard.appendChild(button);
+
+    productDiv.appendChild(image);
+    productDiv.appendChild(proData);
+    allProductsDiv.appendChild(productDiv);
   }
-  document.getElementById('myProducts').innerHTML = product;
 }
 
 function toCart(id, e) {
