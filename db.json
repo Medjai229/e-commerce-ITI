@@ -358,15 +358,22 @@
       "id": "1",
       "fullname": "Malik Hussein",
       "email": "i7HdR@example.com",
-      "password": "123456",
+      "password": "Test$123",
       "isAdmin": true
     },
     {
       "id": "2",
       "fullname": "Mohammed Eid",
       "email": "tHJQ3@example.com",
-      "password": "123456",
+      "password": "Test$123",
       "isAdmin": false
+    },
+    {
+      "id": "7ffb",
+      "isAdmin": false,
+      "fullname": "Mahmoud Mohey",
+      "email": "mahmoud@example.com",
+      "password": "Test$123"
     }
   ]
 }
