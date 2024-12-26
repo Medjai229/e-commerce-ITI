@@ -1,11 +1,12 @@
 // TODO add categories to the selectors
-
+const allProductsDiv = document.getElementById('myProducts');
+const categoriesSelect = document.getElementById('categories-select');
 let allProducts;
 fetch('http://localhost:3000/products')
   .then((response) => response.json())
   .then((data) => {
     allProducts = data;
-    // display(allProducts);
+    display(allProducts);
   })
   .catch((error) => console.error('Error fetching product list:', error));
 
@@ -20,9 +21,14 @@ const categories = [];
 fetch('http://localhost:3000/category')
   .then((response) => response.json())
   .then((data) => {
-    for (let cat of data) categories.push(cat.name);
+    for (let cat of data) {
+      categories.push(cat.name);
+      const catSel = document.createElement('option');
+      catSel.textContent = cat.name;
+      catSel.value = cat.name;
+      categoriesSelect.appendChild(catSel);
+    }
   });
-const allProductsDiv = document.getElementById('myProducts');
 function display(products) {
   var product = '';
   for (let index = 0; index < products.length; index++) {
@@ -138,7 +144,7 @@ function filterItems() {
       document.getElementById('price-range-small').value,
       document.getElementById('price-range-big').value,
     ],
-    rating: document.getElementById('raiting-select').value,
+    rating: document.getElementById('rating-select').value,
     category: document.getElementById('categories-select').value,
   };
   allProductsDiv.innerHTML = '';
@@ -173,6 +179,9 @@ function filterItems() {
     allProductsDiv.innerHTML = '<h2> No products found</h2>';
   }
 }
-setTimeout(() => {
-  filterItems({ rating: [4, 5], category: 'jewelery' });
-}, 1000);
+function resetItems() {
+  document.getElementById('price-range-small').value = 0;
+  document.getElementById('price-range-big').value = 1000;
+  document.getElementById('rating-select').value = 'all';
+  document.getElementById('categories-select').value = 'all';
+}
