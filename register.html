@@ -4,9 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
+    <link rel="stylesheet" href="register.css" />
     <script src="register.js" defer></script>
   </head>
   <body>
+    <!-- * Header -->
+    <section id="header">
+      <div id="logo-container">
+        <a href="products.html"
+          ><img src="./images/f3m/2.png" alt="Logo" class="logo"
+        /></a>
+        <span id="welcome-message"></span>
+      </div>
+      <nav>
+        <ul id="navbar">
+          <li><a href="products.html">Home</a></li>
+          <li><a href="category.html">Shop</a></li>
+          <li><a href="orders.html">Orders</a></li>
+          <li><a href="#">Sign Out</a></li>
+          <li>
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <script>
+      // Getting the user name to welcome
+      const userName = sessionStorage.getItem('fullname') || 'User';
+      const welcomeMessage = document.getElementById('welcome-message');
+      if (userName) {
+        welcomeMessage.textContent = `Welcome, ${userName}`;
+      }
+
+      // Get the current page to highlight
+      const currentPath = window.location.pathname.split('/').pop(); // Extract filename
+      const navLinks = document.querySelectorAll('#navbar a');
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (
+          href === currentPath ||
+          (href === 'index.html' && currentPath === '')
+        ) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    </script>
     <!-- ! redirect to the home page / products -->
     <form action="login.html" id="registerForm">
       <label for="">Full name</label>
@@ -20,5 +64,9 @@
       <!-- phone nubmer (optional) -->
       <input type="submit" id="register" value="Register" />
     </form>
+    <script
+      src="https://kit.fontawesome.com/3597cc1bad.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

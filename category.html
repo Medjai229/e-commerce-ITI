@@ -1,56 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Category</title>
-  <link rel="stylesheet" href="./category.css">
-  <script src="./category.js" defer></script>
-</head>
-<body>
-  <section id="header">
-      <a href="#"
-        ><img src="./images/f3m/2.png" class="logo" width="80px" height="80px"
-      /></a>
-
-      <div>
-        <ul id="navbar">
-          <li><a  href="#">Home</a></li>
-          <li><a  class="active" href="#">Shope</a></li>
-          <li><a  href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></i></li>
-        </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Category</title>
+    <link rel="stylesheet" href="./category.css" />
+    <script src="./category.js" defer></script>
+  </head>
+  <body>
+    <!-- * Header -->
+    <section id="header">
+      <div id="logo-container">
+        <a href="products.html"
+          ><img src="./images/f3m/2.png" alt="Logo" class="logo"
+        /></a>
+        <span id="welcome-message"></span>
       </div>
+      <nav>
+        <ul id="navbar">
+          <li><a href="products.html">Home</a></li>
+          <li><a href="category.html">Shop</a></li>
+          <li><a href="orders.html">Orders</a></li>
+          <li><a href="#">Sign Out</a></li>
+          <li>
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+        </ul>
+      </nav>
     </section>
+    <script>
+      // Getting the user name to welcome
+      const userName = sessionStorage.getItem('fullname') || 'User';
+      const welcomeMessage = document.getElementById('welcome-message');
+      if (userName) {
+        welcomeMessage.textContent = `Welcome, ${userName}`;
+      }
+
+      // Get the current page to highlight
+      const currentPath = window.location.pathname.split('/').pop(); // Extract filename
+      const navLinks = document.querySelectorAll('#navbar a');
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (
+          href === currentPath ||
+          (href === 'index.html' && currentPath === '')
+        ) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    </script>
+    <script
+      src="https://kit.fontawesome.com/3597cc1bad.js"
+      crossorigin="anonymous"
+    ></script>
     <div id="banner">
-      <img src="./images/banner.jpg" alt="">
+      <img src="./images/banner.jpg" alt="" />
     </div>
-    <br>
+    <br />
     <div id="right">
       <section id="product" class="section_p1">
-        <div id="myProducts" class="product_container">
-        </div>
+        <div id="myProducts" class="product_container"></div>
       </section>
     </div>
     <div id="left">
       <section id="category" class="section_p1">
-        <div id="myCategories">
-        </div>
+        <div id="myCategories"></div>
       </section>
       <h2>Filters</h2>
       <ul>
-        <li>By Categories<br>
+        <li>
+          By Categories<br />
           <select name="categories" id="categories-select">
             <option value="all">All</option>
           </select>
         </li>
 
-        <li>By price range<br>
-          <input type="text" id="price-range-small" value="0">
+        <li>
+          By price range<br />
+          <input type="text" id="price-range-small" value="0" />
           <span>=></span>
-          <input type="text" id="price-range-big" value="1000">
+          <input type="text" id="price-range-big" value="1000" />
         </li>
-        <li>By rating<br>
-        <select name="rating" id="rating-select">
+        <li>
+          By rating<br />
+          <select name="rating" id="rating-select">
             <option value="all">All</option>
             <option value="4">4 or higher</option>
             <option value="3">3 or higher</option>
@@ -59,12 +94,11 @@
           </select>
         </li>
       </ul>
-      <br>
+      <br />
       <button id="apply-filters" onclick="filterItems()">Apply Filters</button>
-      <br>
+      <br />
       <button id="reset-filters" onclick="resetItems()">Reset Filters</button>
-      <br>
-
+      <br />
     </div>
     <!-- <div id="main">
     </div> -->
@@ -72,5 +106,5 @@
       src="https://kit.fontawesome.com/3597cc1bad.js"
       crossorigin="anonymous"
     ></script>
-</body>
+  </body>
 </html>
