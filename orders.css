@@ -165,21 +165,21 @@ body {
 .productImg {
   height: 90px;
   width: 90px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
-  border: 2px solid #b89f8f;
+  border: 2px solid #ffce73;
 }
 
 .product h4 {
   font-size: 18px;
   font-weight: bold;
-  color: #332f2c;
+  color: #ffa15e;
   margin: 0;
 }
 
 .product h5 {
   font-size: 14px;
   font-weight: normal;
-  color: #777;
+  color: #ffa15e;
   margin: 0;
 }
