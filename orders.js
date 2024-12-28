@@ -7,6 +7,7 @@ addEventListener('load', () => {
       return response.json();
     })
     .then((data) => {
+      console.log(data);
       ordersData = data;
       showPending();
     });
@@ -37,7 +38,7 @@ async function showPending() {
   for (var i = 0; i < ordersData.length; i++) {
     if (
       ordersData[i].status === 'pending' &&
-      ordersData[i].customerId === userId
+      ordersData[i].customerId === 1024
     ) {
       const product = await getProduct(ordersData[i].productId);
       const productDiv = document.createElement('div');
@@ -49,10 +50,16 @@ async function showPending() {
       productName.textContent = product.title;
       const productStatus = document.createElement('h5');
       productStatus.textContent = `Orderd on: ${ordersData[i].lastModified}`;
+      const cancelBttn = document.createElement('button');
+      cancelBttn.setAttribute('id', `cancel-${ordersData[i].id}`);
+      cancelBttn.setAttribute('class', 'buttons');
+      cancelBttn.addEventListener('click', removeOrder);
+      cancelBttn.textContent = 'Cancel';
 
       productDiv.appendChild(productImg);
       productDiv.appendChild(productName);
       productDiv.appendChild(productStatus);
+      productDiv.appendChild(cancelBttn);
       orders.appendChild(productDiv);
     }
   }
@@ -128,7 +135,7 @@ async function showPrevious() {
       const productName = document.createElement('h4');
       productName.textContent = product.title;
       const productStatus = document.createElement('h5');
-      productStatus.textContent = `Orderd on: ${ordersData[i].lastModified}`;
+      productStatus.textContent = `Delivered on: ${ordersData[i].lastModified}`;
 
       productDiv.appendChild(productImg);
       productDiv.appendChild(productName);
@@ -143,5 +150,15 @@ function getProduct(productId) {
     .then((response) => response.json())
     .then((data) => {
       return data;
+    });
+}
+
+function removeOrder(event) {
+  const bttnId = event.target.id.slice(7);
+
+  fetch(`http://localhost:3000/orders/${bttnId}`, { method: 'DELETE' })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
     });
 }

@@ -183,3 +183,18 @@ body {
   color: #ffa15e;
   margin: 0;
 }
+
+.product .buttons {
+  margin-left: auto;
+  margin-right: 15px;
+  height: 50px;
+  font-size: 18px;
+  color: #000;
+  border-radius: 5px;
+  background-color: #ffa15e;
+}
+
+.product .buttons:hover {
+  background-color: hsla(25, 100%, 68%, 0.3);
+  color: #000;
+}
