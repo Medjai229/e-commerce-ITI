@@ -97,7 +97,7 @@ function displayCart(cart) {
     quantity.classList.add('qs');
     const quantityLabel = document.createElement('label');
     quantityLabel.classList.add('quantitylabel');
-    quantityLabel.textContent = 'Quantity';
+    quantityLabel.textContent = `Quantity available: ${product.stock} `;
     const quantityInput = document.createElement('input');
     quantityInput.classList.add('quantity');
     quantityInput.id = `quantity${product.id}`;
@@ -107,7 +107,9 @@ function displayCart(cart) {
     idCount[product.id] = product.price;
     quantityInput.addEventListener('change', (e) => {
       // console.log(e.target.value, product.price);
-
+      if (e.target.value > product.stock) {
+        e.target.value = product.stock;
+      }
       idCount[product.id] = e.target.value * product.price;
       calculateTotal();
     });
@@ -181,6 +183,9 @@ function checkout() {
   for (let item of cart) {
     // console.log(item);
     const elem = document.getElementById(`quantity${item}`);
+    if (elem.value == 0) {
+      continue;
+    }
     fetch('http://localhost:3000/orders', {
       method: 'POST',
       headers: {
@@ -196,6 +201,7 @@ function checkout() {
       }),
     })
       .then((res) => res.json())
+      .then(localStorage.removeItem('cart'))
       .then((location.href = 'orders.html'));
   }
 }
