@@ -31,99 +31,117 @@ ordersHeaders[3].addEventListener('click', () => {
 });
 
 // Pending products
-function showPending() {
-  console.log(ordersData[0].id);
+async function showPending() {
+  orders.innerHTML = '';
   console.log('pending working');
-  productHTML = '';
   for (var i = 0; i < ordersData.length; i++) {
     if (
       ordersData[i].status === 'pending' &&
       ordersData[i].customerId === userId
     ) {
-      productHTML += `
-      <div class="product">
-      <img
-      class="productImg"
-          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-          alt=""
-          />
-          <h4>Prdocut Name</h4>
-          <h5>Orderd on:</h5>
-          </div>
-          `;
+      const product = await getProduct(ordersData[i].productId);
+      const productDiv = document.createElement('div');
+      productDiv.setAttribute('class', 'product');
+      const productImg = document.createElement('img');
+      productImg.setAttribute('class', 'productImg');
+      productImg.setAttribute('src', product.image);
+      const productName = document.createElement('h4');
+      productName.textContent = product.title;
+      const productStatus = document.createElement('h5');
+      productStatus.textContent = `Orderd on: ${ordersData[i].lastModified}`;
+
+      productDiv.appendChild(productImg);
+      productDiv.appendChild(productName);
+      productDiv.appendChild(productStatus);
+      orders.appendChild(productDiv);
     }
   }
-  orders.innerHTML = productHTML;
 }
-function showAccepted() {
+async function showAccepted() {
+  orders.innerHTML = '';
   console.log('accepted working');
-  console.log(ordersData);
-  productHTML = '';
   for (var i = 0; i < ordersData.length; i++) {
     if (
       ordersData[i].status === 'approved' &&
       ordersData[i].customerId === userId
     ) {
-      productHTML += `
-      <div class="product">
-      <img
-      class="productImg"
-      src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-      alt=""
-      />
-      <h4>Prdocut Name</h4>
-      <h5>Accepted on:</h5>
-      </div>
-      `;
+      const product = await getProduct(ordersData[i].productId);
+      const productDiv = document.createElement('div');
+      productDiv.setAttribute('class', 'product');
+      const productImg = document.createElement('img');
+      productImg.setAttribute('class', 'productImg');
+      productImg.setAttribute('src', product.image);
+      const productName = document.createElement('h4');
+      productName.textContent = product.title;
+      const productStatus = document.createElement('h5');
+      productStatus.textContent = `Approved on: ${ordersData[i].lastModified}`;
+
+      productDiv.appendChild(productImg);
+      productDiv.appendChild(productName);
+      productDiv.appendChild(productStatus);
+      orders.appendChild(productDiv);
     }
   }
-  orders.innerHTML = productHTML;
 }
 
-function showRejected() {
-  console.log('rejected working');
-  productHTML = '';
+async function showRejected() {
+  orders.innerHTML = '';
+  console.log('decliend working');
   for (var i = 0; i < ordersData.length; i++) {
     if (
       ordersData[i].status === 'decliend' &&
       ordersData[i].customerId === userId
     ) {
-      productHTML += `
-      <div class="product">
-      <img
-      class="productImg"
-      src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-      alt=""
-      />
-      <h4>Prdocut Name</h4>
-      <h5>Rejected on:</h5>
-      </div>
-      `;
+      const product = await getProduct(ordersData[i].productId);
+      const productDiv = document.createElement('div');
+      productDiv.setAttribute('class', 'product');
+      const productImg = document.createElement('img');
+      productImg.setAttribute('class', 'productImg');
+      productImg.setAttribute('src', product.image);
+      const productName = document.createElement('h4');
+      productName.textContent = product.title;
+      const productStatus = document.createElement('h5');
+      productStatus.textContent = `Decliend on: ${ordersData[i].lastModified}`;
+
+      productDiv.appendChild(productImg);
+      productDiv.appendChild(productName);
+      productDiv.appendChild(productStatus);
+      orders.appendChild(productDiv);
     }
   }
-  orders.innerHTML = productHTML;
 }
 
-function showPrevious() {
-  console.log('previous working');
-  productHTML = '';
+async function showPrevious() {
+  orders.innerHTML = '';
+  console.log('accepted working');
   for (var i = 0; i < ordersData.length; i++) {
     if (
       ordersData[i].status === 'previous' &&
       ordersData[i].customerId === userId
     ) {
-      productHTML += `
-      <div class="product">
-        <img
-          class="productImg"
-          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-          alt=""
-        />
-        <h4>Prdocut Name</h4>
-        <h5>Delevired on:</h5>
-      </div>
-      `;
+      const product = await getProduct(ordersData[i].productId);
+      const productDiv = document.createElement('div');
+      productDiv.setAttribute('class', 'product');
+      const productImg = document.createElement('img');
+      productImg.setAttribute('class', 'productImg');
+      productImg.setAttribute('src', product.image);
+      const productName = document.createElement('h4');
+      productName.textContent = product.title;
+      const productStatus = document.createElement('h5');
+      productStatus.textContent = `Orderd on: ${ordersData[i].lastModified}`;
+
+      productDiv.appendChild(productImg);
+      productDiv.appendChild(productName);
+      productDiv.appendChild(productStatus);
+      orders.appendChild(productDiv);
     }
   }
-  orders.innerHTML = productHTML;
+}
+
+function getProduct(productId) {
+  return fetch(`http://localhost:3000/products/${productId}`)
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    });
 }
