@@ -1,0 +1,125 @@
+/* #myHeader h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: #0049c6;
+}
+
+#myHeader .breadcrumb {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  grid-gap: 16px;
+}
+
+#myHeader .breadcrumb li {
+  color: #0049c6;
+}
+
+#myHeader .breadcrumb li a {
+  color: #6c5dd3;
+  pointer-events: none;
+}
+#myHeader .breadcrumb .breadcrumb li a.active {
+  color: #6c5dd3;
+  pointer-events: unset;
+} */
+
+.category_products {
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+.action-button {
+  margin-left: 10px;
+  padding: 10px 40px;
+  background-color: #0049c6;
+  border-radius: 20px;
+  font-size: 15px;
+  color: white;
+}
+
+.table-container {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 24px;
+  margin-top: 24px;
+  width: 100%;
+  color: var(--dark);
+}
+.table-container > div {
+  border-radius: 20px;
+  background: #f9f9f9;
+  padding: 24px;
+  overflow-x: auto;
+}
+.table-container .head {
+  display: flex;
+  align-items: center;
+  grid-gap: 16px;
+  margin-bottom: 24px;
+}
+
+.table-container .head h3 {
+  margin-right: auto;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.table-container {
+  flex-grow: 1;
+  flex-basis: 500px;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container table th {
+  padding-bottom: 12px;
+  font-size: 13px;
+  text-align: left;
+  border-bottom: 1px solid gray;
+}
+
+.styled-table td {
+  padding: 16px 0;
+}
+
+.styled-table th {
+  background-color: #f4f4f4;
+  color: #0049c6;
+}
+
+.table-container table tr td:first-child {
+  display: flex;
+  align-items: center;
+  grid-gap: 12px;
+  padding-left: 6px;
+}
+
+.table-container table tbody tr:hover {
+  background: #eee;
+}
+.adit_delete {
+  display: flex;
+  justify-content: space-around;
+}
+.adit_delete button {
+  border-radius: 20px;
+  padding: 8px;
+  background-color: #0049c6;
+  color: white;
+  width: 70px;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  color: black;
+}
