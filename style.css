@@ -1,0 +1,117 @@
+
+
+body {
+    font-family: "Poppins", serif;
+    font-weight: 900;
+    font-style: normal; 
+    margin:25px 50px 25px 50px; 
+}
+*{
+    margin: 0;
+}
+
+.left_page{
+position: relative;
+z-index: 99999;
+width: 50%;
+height: 665px;
+background-color: #6c5dd3;
+float: left;
+background-size: 150%;
+background-blend-mode: color-burn;
+
+}
+#left_page_content {
+   /* background-color: #FFCE73;*/
+    position: absolute;
+    left: 22%;
+    bottom:6%;
+    width: 59%;
+    margin: auto;
+    margin-top: 100px;
+    
+}
+
+.right_page{
+width: 50%;
+height: 665px;
+background-color: rgb(23, 97, 209);
+float: right;
+background-image: url(images/ilgmyzin-CbxZV0kebOA-unsplash.jpg); 
+background-size: 100%;
+}
+    
+
+#mail{
+    font-size:19px;
+    width: 370px;
+    height: 40px;
+    outline: none;
+}
+
+#pass{
+width: 370px;
+height: 40px;
+outline: none;
+}
+    
+#log_in{
+
+width: 377px;
+height: 42px;
+font-size: 22px;
+background-color: #FFCE73;
+border: none;
+}
+
+#log_in:hover {
+    background-color:#F2B66D ;
+    color: aliceblue;
+    cursor:pointer
+}
+
+label {
+font-weight:bold;
+
+}
+
+button {
+
+    width: 100px;
+    height: 30px;
+}
+
+.clear {
+
+    clear: both;
+}
+
+#mailmsg_error {
+    padding: 5px;
+    position: absolute;
+    top: 241px;
+    background-color: #f3d5ff;
+    font-weight: 400;
+    color: red;
+}
+
+#password_error{
+    padding: 5px;
+    position: absolute;
+    top: 355px;
+    background-color: #f3d5ff;
+    font-weight: 400;
+    color: red;
+}
+
+form label {
+margin-bottom: 100px;
+margin-bottom: 100px;}
+
+#heading {
+margin: 50px;
+font-size: 60px;
+color: white;
+position: absolute;
+z-index: 10000;
+}
