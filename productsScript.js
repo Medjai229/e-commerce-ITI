@@ -24,6 +24,15 @@ if (localStorage.getItem('cart')) {
 } else {
   cart = [];
 }
+
+let wishList = [];
+if (localStorage.getItem('wishList')) {
+  wishList = JSON.parse(localStorage.getItem('wishList'));
+  // console.log(wishList);
+} else {
+  wishList = [];
+}
+
 const allProductsDiv = document.getElementById('myProducts');
 function display(products) {
   var product = '';
@@ -74,10 +83,23 @@ function display(products) {
     price.id = 'price';
     price.textContent = '$' + products[index].price;
 
+    const wishButton = document.createElement('button');
+    wishButton.setAttribute(
+      'onclick',
+      `toWishList(${products[index].id},event)`
+    );
+    wishButton.classList.add('thewish');
+    const wishIcon = document.createElement('i');
+    wishIcon.classList.add('fa-solid', 'fa-heart', 'wish');
+    if (wishList.includes(products[index].id)) {
+      wishButton.style.backgroundColor = 'lightgreen';
+    }
+    wishButton.appendChild(wishIcon);
+
     const button = document.createElement('button');
 
     button.setAttribute('onclick', `toCart(${products[index].id},event)`);
-    button.setAttribute('id', 'thecart');
+    button.classList.add('thecart');
     const cartIcon = document.createElement('i');
     cartIcon.classList.add('fa-solid', 'fa-cart-shopping', 'cart');
     if (cart.includes(products[index].id)) {
@@ -90,6 +112,7 @@ function display(products) {
     proData.appendChild(star);
     proData.appendChild(priceCard);
     priceCard.appendChild(price);
+    priceCard.appendChild(wishButton);
     priceCard.appendChild(button);
 
     productDiv.appendChild(image);
@@ -104,13 +127,13 @@ function toCart(id, e) {
     cart.push(product.id);
     localStorage.setItem('cart', JSON.stringify(cart));
     const sty = e.target;
-    console.log(sty);
+    // console.log(sty);
     sty.style.backgroundColor = 'lightgreen';
   } else {
     cart.splice(cart.indexOf(product.id), 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     const sty = e.target;
-    console.log(sty);
+    // console.log(sty);
     sty.style.backgroundColor = '#e9e6e4';
   }
 }
@@ -133,4 +156,30 @@ function createStarRating(rating) {
   }
 
   return starHtml;
+}
+function toWishList(id, e) {
+  const product = allProducts.find((p) => p.id == id);
+  if (!wishList.includes(product.id)) {
+    wishList.push(product.id);
+    localStorage.setItem('wishList', JSON.stringify(wishList));
+    let sty;
+    if (e.target.classList.contains('fa-heart')) {
+      sty = e.target.parentElement;
+    } else {
+      sty = e.target;
+    }
+    // console.log(sty);
+    sty.style.backgroundColor = 'lightgreen';
+  } else {
+    wishList.splice(wishList.indexOf(product.id), 1);
+    localStorage.setItem('wishList', JSON.stringify(wishList));
+    let sty;
+    if (e.target.classList.contains('fa-heart')) {
+      sty = e.target.parentElement;
+    } else {
+      sty = e.target;
+    }
+    // console.log(sty);
+    sty.style.backgroundColor = '#e9e6e4';
+  }
 }

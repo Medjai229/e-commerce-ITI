@@ -201,7 +201,22 @@ body {
 #price {
   float: left;
 }
-#thecart {
+.thewish {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: #e9e6e4;
+  color: #ee6f95;
+  border: 1px solid #ffa2c0;
+  position: absolute;
+  bottom: 10px;
+  right: 60px;
+}
+.thecart {
   float: right;
 }
 

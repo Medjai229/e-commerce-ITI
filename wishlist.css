@@ -1,0 +1,133 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #f4f1ef;
+  color: #332f2c;
+  line-height: 1.6;
+}
+
+:root {
+  --header-bg-color: #6c5dd3;
+  --highlight-color: #ffa2c0;
+  --text-color: white;
+  --font-weight-bold: 600;
+  --font-size: 16px;
+  --logo-size: 80px;
+}
+
+/* Header Styling */
+#header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
+  height: var(--logo-size);
+  background-color: var(--header-bg-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+/* Logo and Welcome Message */
+#logo-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  object-fit: contain;
+}
+
+#welcome-message {
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+}
+
+.section_p1 {
+  padding: 40px 80px;
+}
+
+/* Navbar Styling */
+#navbar {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  list-style: none;
+}
+
+#navbar li a {
+  text-decoration: none;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+  color: var(--highlight-color);
+}
+
+/* Underline Effect */
+#navbar li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--highlight-color);
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+  width: 50%;
+}
+#wishlisttitle {
+  font-size: 60px;
+  text-align: center;
+  margin: 0 auto;
+}
+#wishlist {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  display: block;
+}
+#homeicon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  display: block;
+}
+#wishlistitems {
+  /* border: 1px solid #0049c6; */
+  width: 90%;
+  margin: 0 auto;
+}
+.wishlistitem {
+  border: 1px solid #0049c6;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.image {
+  width: 20%;
+  height: 150px;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+}
+.price {
+  margin: 0 auto;
+  display: block;
+}
