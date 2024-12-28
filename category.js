@@ -1,12 +1,28 @@
-// TODO add categories to the selectors
 const allProductsDiv = document.getElementById('myProducts');
 const categoriesSelect = document.getElementById('categories-select');
+let categoryQuery = location.search;
+
+const smallPriceFilter = document.getElementById('price-range-small');
+const bigPriceFilter = document.getElementById('price-range-big');
+const ratingFilter = document.getElementById('rating-select');
+const categoryFilter = document.getElementById('categories-select');
+
+if (categoryQuery) {
+  categoryQuery = categoryQuery.split('?')[1].split('=')[1];
+  categoryQuery = decodeURIComponent(categoryQuery);
+}
 let allProducts;
 fetch('http://localhost:3000/products')
   .then((response) => response.json())
   .then((data) => {
     allProducts = data;
-    display(allProducts);
+    if (categoryQuery) {
+      console.log(categoryQuery);
+      categoryFilter.value = categoryQuery.toString();
+      filterItems();
+    } else {
+      display(allProducts);
+    }
   })
   .catch((error) => console.error('Error fetching product list:', error));
 
@@ -17,6 +33,15 @@ if (localStorage.getItem('cart')) {
 } else {
   cart = [];
 }
+
+let wishList = [];
+if (localStorage.getItem('wishList')) {
+  wishList = JSON.parse(localStorage.getItem('wishList'));
+  // console.log(wishList);
+} else {
+  wishList = [];
+}
+
 const categories = [];
 fetch('http://localhost:3000/category')
   .then((response) => response.json())
@@ -30,7 +55,6 @@ fetch('http://localhost:3000/category')
     }
   });
 function display(products) {
-  var product = '';
   for (let index = 0; index < products.length; index++) {
     // !redesign the button so it starts green if in cart
     // product += `
@@ -77,11 +101,23 @@ function display(products) {
     const price = document.createElement('h4');
     price.id = 'price';
     price.textContent = '$' + products[index].price;
+    const wishButton = document.createElement('button');
+    wishButton.setAttribute(
+      'onclick',
+      `toWishList(${products[index].id},event)`
+    );
+    wishButton.classList.add('thewish');
+    const wishIcon = document.createElement('i');
+    wishIcon.classList.add('fa-solid', 'fa-heart', 'wish');
+    if (wishList.includes(products[index].id)) {
+      wishButton.style.backgroundColor = 'lightgreen';
+    }
+    wishButton.appendChild(wishIcon);
 
     const button = document.createElement('button');
 
     button.setAttribute('onclick', `toCart(${products[index].id},event)`);
-    button.setAttribute('id', 'thecart');
+    button.classList.add('thecart');
     const cartIcon = document.createElement('i');
     cartIcon.classList.add('fa-solid', 'fa-cart-shopping', 'cart');
     if (cart.includes(products[index].id)) {
@@ -94,6 +130,7 @@ function display(products) {
     proData.appendChild(star);
     proData.appendChild(priceCard);
     priceCard.appendChild(price);
+    priceCard.appendChild(wishButton);
     priceCard.appendChild(button);
 
     productDiv.appendChild(image);
@@ -108,13 +145,13 @@ function toCart(id, e) {
     cart.push(product.id);
     localStorage.setItem('cart', JSON.stringify(cart));
     const sty = e.target;
-    console.log(sty);
+    // console.log(sty);
     sty.style.backgroundColor = 'lightgreen';
   } else {
     cart.splice(cart.indexOf(product.id), 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     const sty = e.target;
-    console.log(sty);
+    // console.log(sty);
     sty.style.backgroundColor = '#e9e6e4';
   }
 }
@@ -140,20 +177,18 @@ function createStarRating(rating) {
 }
 function filterItems() {
   objFilter = {
-    price: [
-      document.getElementById('price-range-small').value,
-      document.getElementById('price-range-big').value,
-    ],
-    rating: document.getElementById('rating-select').value,
-    category: document.getElementById('categories-select').value,
+    price: [smallPriceFilter.value, bigPriceFilter.value],
+    rating: ratingFilter.value,
+    category: categoryFilter.value,
   };
   allProductsDiv.innerHTML = '';
   // console.log(objFilter);
+  // const defaultFilter = {
+  //   price: ['0', '1000'],
+  //   rating: 'all',
+  //   category: 'all',
+  // };
 
-  if (!objFilter) {
-    display(allProducts);
-    return;
-  }
   let productsFiltered = allProducts;
   if (objFilter.category != 'all') {
     productsFiltered = productsFiltered.filter(
@@ -161,6 +196,7 @@ function filterItems() {
     );
     // console.log(productsFiltered);
   }
+
   if (objFilter.price) {
     productsFiltered = productsFiltered.filter(
       (p) => p.price >= objFilter.price[0] && p.price <= objFilter.price[1]
@@ -171,9 +207,9 @@ function filterItems() {
     productsFiltered = productsFiltered.filter(
       (p) => p.rating.rate >= objFilter.rating
     );
-    console.log(productsFiltered);
   }
-  if (productsFiltered) {
+
+  if (productsFiltered.length != 0) {
     display(productsFiltered);
   } else {
     allProductsDiv.innerHTML = '<h2> No products found</h2>';
@@ -184,4 +220,31 @@ function resetItems() {
   document.getElementById('price-range-big').value = 1000;
   document.getElementById('rating-select').value = 'all';
   document.getElementById('categories-select').value = 'all';
+  filterItems();
+}
+function toWishList(id, e) {
+  const product = allProducts.find((p) => p.id == id);
+  if (!wishList.includes(product.id)) {
+    wishList.push(product.id);
+    localStorage.setItem('wishList', JSON.stringify(wishList));
+    let sty;
+    if (e.target.classList.contains('fa-heart')) {
+      sty = e.target.parentElement;
+    } else {
+      sty = e.target;
+    }
+    // console.log(sty);
+    sty.style.backgroundColor = 'lightgreen';
+  } else {
+    wishList.splice(wishList.indexOf(product.id), 1);
+    localStorage.setItem('wishList', JSON.stringify(wishList));
+    let sty;
+    if (e.target.classList.contains('fa-heart')) {
+      sty = e.target.parentElement;
+    } else {
+      sty = e.target;
+    }
+    // console.log(sty);
+    sty.style.backgroundColor = '#e9e6e4';
+  }
 }
