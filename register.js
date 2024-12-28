@@ -44,6 +44,17 @@ confirmPass.addEventListener('blur', () => {
   }
 });
 
+
+
+
+
+
+
+
+
+
+
+
 registerForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   let userExists = await checkUser();
