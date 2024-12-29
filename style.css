@@ -14,7 +14,7 @@ body {
 position: relative;
 z-index: 99999;
 width: 50%;
-height: 665px;
+height: 665px;  /*use vh */
 background-color: #6c5dd3;
 float: left;
 background-size: 150%;
@@ -87,22 +87,33 @@ button {
 }
 
 #mailmsg_error {
-    padding: 5px;
     position: absolute;
     top: 241px;
-    background-color: #f3d5ff;
+    background-color: #E35241;
     font-weight: 400;
-    color: red;
+    color: rgb(255, 255, 255);
 }
 
 #password_error{
-    padding: 5px;
     position: absolute;
     top: 355px;
-    background-color: #f3d5ff;
+    background-color: #E35241;
     font-weight: 400;
-    color: red;
+    color: rgb(255, 255, 255);
 }
+
+
+#submition_error{
+
+    position: absolute;
+    top: 447px;
+    left: 18px;
+    background-color: #E35241;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+
+}
+
 
 form label {
 margin-bottom: 100px;

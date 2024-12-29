@@ -17,9 +17,11 @@ validate = true; // Reset validation state
 var mail_value = mail.value
 if (!regexmail.test(mail_value)){
 mailmsg_error.innerHTML = "Please enter valid email"
+mailmsg_error.style.padding="5px"
 validate = false
 }
 else{mailmsg_error.innerHTML = ""
+     mailmsg_error.style.padding="0"
 
 }
 }
@@ -30,9 +32,12 @@ validate = true; // Reset validation state
 var pass_val = pass.value
 if (!regexpass.test(pass_val)){
 passmsg_error.innerHTML = "Please enter valid pass"
+passmsg_error.style.padding="5px"
 validate = false
  }
- else{passmsg_error.innerHTML =""}
+ else{passmsg_error.innerHTML =""
+     passmsg_error.style.padding="0"
+ }
  }
 
 
@@ -47,7 +52,10 @@ var pass_val = pass.value
 
 if(!validate || mail_value =="" || pass_val =="" )
 {
-submsg_error.innerHTML = "Error: Data input check failed. Please try again."
+submsg_error.innerHTML = " Data input check failed. Please try again"
+submsg_error.style.padding="5px"
+}
+else{submsg_error.style.padding="0"
 }
 }
 
@@ -80,6 +88,15 @@ users = await fetchdata()
                 }
         }
         console.log("Error: Email not found");
-        return "no email";}
+     submsg_error.innerHTML = "email or password isn't connected to an account."
+     return "no email";
+
+     
+     }
 
 
+     function saveToLocalStorage(email, password) {
+          localStorage.setItem("email", email);
+          localStorage.setItem("password", password);
+          console.log("Email and password saved to local storage");
+      }

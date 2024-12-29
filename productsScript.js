@@ -92,7 +92,7 @@ function display(products) {
     const wishIcon = document.createElement('i');
     wishIcon.classList.add('fa-solid', 'fa-heart', 'wish');
     if (wishList.includes(products[index].id)) {
-      wishButton.style.backgroundColor = 'lightgreen';
+      wishButton.style.backgroundColor = 'red';
     }
     wishButton.appendChild(wishIcon);
 
@@ -157,7 +157,7 @@ function createStarRating(rating) {
 
   return starHtml;
 }
-function toWishList(id, e) {
+function toWishList(id,e) {
   const product = allProducts.find((p) => p.id == id);
   if (!wishList.includes(product.id)) {
     wishList.push(product.id);
@@ -168,8 +168,8 @@ function toWishList(id, e) {
     } else {
       sty = e.target;
     }
-    // console.log(sty);
-    sty.style.backgroundColor = 'lightgreen';
+    console.log(sty);
+    sty.style.backgroundColor = 'red';
   } else {
     wishList.splice(wishList.indexOf(product.id), 1);
     localStorage.setItem('wishList', JSON.stringify(wishList));
@@ -179,7 +179,7 @@ function toWishList(id, e) {
     } else {
       sty = e.target;
     }
-    // console.log(sty);
-    sty.style.backgroundColor = '#e9e6e4';
+     console.log(sty);
+    sty.style.backgroundColor = '#AFABAB';
   }
 }
