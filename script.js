@@ -83,8 +83,8 @@ users = await fetchdata()
                    } else {
                         console.log('this is user')
                          sessionStorage.setItem("id", user.id);
-                         sessionStorage.setItem("name", user.fullname);
-                         sessionStorage.setItem("isadmin", user.isAdmin);
+                         sessionStorage.setItem("fullname", user.fullname);
+                         sessionStorage.setItem("isaلdmin", user.isAdmin);
                          console.log("Email and password saved to local storage");
                      }
                         submit.submit() 
