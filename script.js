@@ -83,7 +83,7 @@ users = await fetchdata()
                    } else {
                         console.log('this is user')
                          sessionStorage.setItem("id", user.id);
-                         sessionStorage.setItem("name", user.name);
+                         sessionStorage.setItem("name", user.fullname);
                          sessionStorage.setItem("isadmin", user.isAdmin);
                          console.log("Email and password saved to local storage");
                      }
@@ -91,9 +91,10 @@ users = await fetchdata()
                         return 'verified'
                    }
                 }
-        }
+        
         console.log("Error: Email not found");
      submsg_error.innerHTML = "email or password isn't connected to an account."
      return "no email";
 
      
+}
