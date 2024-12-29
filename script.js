@@ -82,6 +82,11 @@ users = await fetchdata()
                         return 'wrong password'
                    } else {
                         console.log('this is user')
+                         sessionStorage.setItem("id", user.id);
+                         sessionStorage.setItem("name", user.name);
+                         sessionStorage.setItem("isadmin", user.isAdmin);
+                         console.log("Email and password saved to local storage");
+                     }
                         submit.submit() 
                         return 'verified'
                    }
@@ -92,11 +97,3 @@ users = await fetchdata()
      return "no email";
 
      
-     }
-
-
-     function saveToLocalStorage(email, password) {
-          localStorage.setItem("email", email);
-          localStorage.setItem("password", password);
-          console.log("Email and password saved to local storage");
-      }
