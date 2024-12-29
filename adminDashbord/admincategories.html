@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Categories</title>
+    <link rel="stylesheet" href="admincategories.css" />
+    <script src="admincategories.js" defer></script>
+  </head>
+  <body>
+    <div id="main">
+      <h1>Admin Categories</h1>
+      <div id="categories">
+        <input type="text" id="category_input" />
+        <button id="add_category" onclick="addCategory()">
+          Add new Category
+        </button>
+        <table id="category_table">
+          <thead>
+            <tr>
+              <th>Category ID</th>
+              <th>Category Name</th>
+              <th>Category New Name</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
