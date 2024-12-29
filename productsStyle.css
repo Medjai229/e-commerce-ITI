@@ -104,9 +104,11 @@ body {
 }
 /* syling banner_image */
 #banner_image {
-  background-image: url('/images/banner1.jpeg');
+  background-color: #F2B66D;
+  background-image: url('images/A1.jpg');
+  background-size: 100%;
   width: 100%;
-  height: 90vh;
+  height: 65vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -114,7 +116,7 @@ body {
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 }
 
 /* styling products */
