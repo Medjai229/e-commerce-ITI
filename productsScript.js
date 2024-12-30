@@ -103,7 +103,7 @@ function display(products) {
     const cartIcon = document.createElement('i');
     cartIcon.classList.add('fa-solid', 'fa-cart-shopping', 'cart');
     if (cart.includes(products[index].id)) {
-      cartIcon.style.backgroundColor = 'lightgreen';
+      cartIcon.style.backgroundColor = '0049C6';
     }
     button.appendChild(cartIcon);
 
@@ -128,13 +128,13 @@ function toCart(id, e) {
     localStorage.setItem('cart', JSON.stringify(cart));
     const sty = e.target;
     // console.log(sty);
-    sty.style.backgroundColor = 'lightgreen';
+    sty.style.backgroundColor = '#02C77D';
   } else {
     cart.splice(cart.indexOf(product.id), 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     const sty = e.target;
     // console.log(sty);
-    sty.style.backgroundColor = '#e9e6e4';
+    sty.style.backgroundColor = '#0049C6';
   }
 }
 
@@ -180,6 +180,6 @@ function toWishList(id,e) {
       sty = e.target;
     }
      console.log(sty);
-    sty.style.backgroundColor = '#AFABAB';
+    sty.style.backgroundColor = '#0049C6';
   }
 }
