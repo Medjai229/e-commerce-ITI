@@ -1,6 +1,6 @@
 const fullName = document.getElementById('fullName');
-const email = document.getElementById('mail');
-const pass = document.getElementById('pass');
+const email = document.getElementById('email');
+const pass = document.getElementById('passreg');
 const confirmPass = document.getElementById('confirmPass');
 const bttn = document.getElementById('register');
 const registerForm = document.getElementById('registerForm');
@@ -43,17 +43,6 @@ confirmPass.addEventListener('blur', () => {
     console.log(userData);
   }
 });
-
-
-
-
-
-
-
-
-
-
-
 
 registerForm.addEventListener('submit', async (e) => {
   e.preventDefault();
