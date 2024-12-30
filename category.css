@@ -99,11 +99,11 @@ body {
 }
 
 /* syling banner_image */
-#banner_image {
-  background-image: url('images/A1.jpg');
+#banner {
+  background-image: url('images/v1.jpg');
   width: 100%;
-  height: 90vh;
-  background-size: cover;
+  height: 1000vh;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -117,6 +117,8 @@ body {
 
 #product {
   text-align: left;
+  background-color: white;
+
 }
 
 #product .product_container {
@@ -164,26 +166,32 @@ body {
 }
 
 #product .pro .pro_data span {
-  color: #6c5dd3;
-}
+  color: #0049C6;
+  margin-left: 6px;
+font-size: 24px;
+font-weight: 750;}
 
 #product .pro .pro_data h5 {
   padding: 7px;
-  color: black;
+  padding: 7px;
+  color: #1B1D21;
   font-size: 14px;
   height: 80px;
 }
 
 #product .pro .pro_data .star i {
   font-size: 12px;
-  color: #ffce7e;
+  color: #fdb43f;
+  margin-left: 5px;
+  
 }
 
 #product .pro .pro_data h4 {
   padding-top: 7px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700px;
-  color: #0049c6;
+  color: #6c5dd3;
+  margin-left: 7px;
 }
 
 #product .pro .cart {
@@ -194,12 +202,11 @@ body {
   justify-content: center;
   line-height: 40px;
   border-radius: 50px;
-  background-color: #e9e6e4;
-  color: #6c5dd3;
-  border: 1px solid #ffa2c0;
+  background-color: #0049C6;
+  color: #ffffff;
   position: absolute;
-  bottom: 10px;
-  right: 8px;
+  bottom: 20px;
+  right: 16px;
 }
 
 #price {
@@ -213,12 +220,12 @@ body {
   justify-content: center;
   line-height: 40px;
   border-radius: 50px;
-  background-color: #e9e6e4;
-  color: #ee6f95;
-  border: 1px solid #ffa2c0;
+  background-color: #0049C6;
+  color: white;
+  border: 1px solid #F2F7FD;
   position: absolute;
-  bottom: 10px;
-  right: 60px;
+  bottom: 18px;
+  right: 67px;
 }
 .thecart {
   float: right;
@@ -240,11 +247,13 @@ body {
 }
 #left {
   position: relative;
-  background-color: rgb(124, 124, 245);
-  float: left;
+  background-color: rgb(82, 66, 189);
   width: 25%;
-  height: 100%;
-  font-size: 30px;
+  height: 100vh;
+  font-size: 28px;
+  color: #e9e6e4;
+  margin-left: 15px;
+  padding-left: 25px;
 }
 #right {
   position: relative;
@@ -299,18 +308,46 @@ div.product {
   margin-right: auto;
 }
 #left ul li select {
-  width: 60%;
-  height: 30px;
-  font-size: 18px;
+  margin-left: 14%;
+  background-color: #e5f1ff;
+  color: #0049c6;
+  border: 1px solid #0049c6;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 14px 20px;
+  
+  width: 67%;
+  height: 50px;
+  font-size: 16px;
 }
 #left ul li input {
-  width: 35%;
+   margin-left: 5%;
+  background-color: #e5f1ff;
+  color: #00348d;
+  border: 1px solid #0049c6;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 20px;
+  width: 30%;
   height: 30px;
-  font-size: 22px;
+  font-size: 16px;
 }
 #left button {
-  width: 80%;
-  height: 30px;
+  width: 70%;
+  height: 50px;
   font-size: 22px;
-  margin-left: 10%;
+  margin-left: 12%;
+  background-color: #e5f1ff;
+  color: #0049c6;
+  border: 1px solid #0049c6;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 7px;
+  margin-bottom: 10px;
+}
+
+.left button:hover {
+  background-color: #0049c6;
+  color: white;
 }

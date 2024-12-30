@@ -77,9 +77,8 @@
       crossorigin="anonymous"
     ></script>
     <div id="banner">
-      <img src="./images/banner.jpg" alt="" />
     </div>
-    <br />
+    <br /><br><br><br><br><br>
     <div id="right">
       <section id="product" class="section_p1">
         <div id="myProducts" class="product_container"></div>
@@ -89,21 +88,23 @@
       <section id="category" class="section_p1">
         <div id="myCategories"></div>
       </section>
-      <h2>Filters</h2>
-      <ul>
+      <h3  style="color: #e5f1ff;">Categories :</h3>
+      <ul  style="  list-style-type: none;
+">
         <li>
-          By Categories<br />
+          <br />
           <select name="categories" id="categories-select">
             <option value="all">All</option>
           </select>
         </li>
-
+<br>
         <li>
           By price range<br />
           <input type="text" id="price-range-small" value="0" />
-          <span>=></span>
+          <span>to</span>
           <input type="text" id="price-range-big" value="1000" />
         </li>
+        <br>
         <li>
           By rating<br />
           <select name="rating" id="rating-select">
@@ -115,7 +116,7 @@
           </select>
         </li>
       </ul>
-      <br />
+      <br>
       <button id="apply-filters" onclick="filterItems()">Apply Filters</button>
       <br />
       <button id="reset-filters" onclick="resetItems()">Reset Filters</button>
