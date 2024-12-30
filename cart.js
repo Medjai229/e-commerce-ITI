@@ -107,7 +107,7 @@ function displayCart(cart) {
     idCount[product.id] = product.price;
     quantityInput.addEventListener('change', (e) => {
       // console.log(e.target.value, product.price);
-      if (e.target.value > product.stock) {
+      if (parseInt(e.target.value) > parseInt(product.stock)) {
         e.target.value = product.stock;
       }
       idCount[product.id] = e.target.value * product.price;

@@ -7,70 +7,69 @@
     <link rel="stylesheet" href="./admenStyle.css" />
   </head>
   <body>
-    <div id="container">
-      <div id="base_menue">
-        <div class="logo">
-          <img src="../images/f3m/2.png" alt="" />
-        </div>
-        <div id="menue">
-          <!-- <h3><i class="fa-solid fa-layer-group"></i>Dashboard</h3>
-          <h3><i class="fa-solid fa-shop"></i>Products</h3>
-          <h3></i>Users</h3>
-          <h3><i class="fa-solid fa-table"></i>Categores</h3> -->
-
-          <li>
-            <i class="fa-solid fa-shop"><a href="#">Products</a></i>
-          </li>
-          <li>
-            <i class="fa-solid fa-user"><a href="#">Users</a></i>
-          </li>
-          <li>
-            <i class="fa-solid fa-layer-group"><a href="#">Orders</a></i>
-          </li>
-          <li style="visibility: hidden"></li>
-
-          <li style="visibility: hidden"></li>
-
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <div class="sign_out">
-            <h3><img src="../images/1.png" alt="" /></h3>
-            <h3 class="admin_name">
-              Name User <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </h3>
-          </div>
-        </div>
+    <!-- * Header -->
+    <section id="header">
+      <div id="logo-container">
+        <a href="../products.html"
+          ><img src="../images/f3m/2.png" alt="Logo" class="logo"
+        /></a>
+        <span id="welcome-message"></span>
       </div>
+      <nav>
+        <ul id="navbar">
+          <li>
+            <a href="../products.html" style="display: none" id="storeSwitch"
+              ><i class="fa-solid fa-store" style="margin-right: 8px"></i>Return
+              to Store</a
+            >
+          </li>
+          <li><a href="admen.html">Products</a></li>
+          <li><a href="admincategories.html">Categories</a></li>
+          <li><a href="adminUsers.html">Users</a></li>
+          <li><a href="adminOrders.html">Orders</a></li>
+          <li>
+            <a href="#" onclick="signOut()"
+              ><i class="fa-solid fa-right-from-bracket"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <script>
+      // Getting the user name to welcome
+      const storeSwitch = document.getElementById('storeSwitch');
+      const userName = sessionStorage.getItem('fullname') || 'User';
+      const isAdmin = sessionStorage.getItem('isadmin') || false;
+      console.log(isAdmin);
+      if (isAdmin == 'true') {
+        storeSwitch.removeAttribute('style');
+      }
+      const welcomeMessage = document.getElementById('welcome-message');
+      if (userName) {
+        welcomeMessage.textContent = `Welcome, ${userName}`;
+      }
+
+      // Get the current page to highlight
+      const currentPath = window.location.pathname.split('/').pop(); // Extract filename
+      const navLinks = document.querySelectorAll('#navbar a');
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (
+          href === currentPath ||
+          (href === 'index.html' && currentPath === '')
+        ) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      function signOut() {
+        sessionStorage.clear();
+        window.location.reload();
+      }
+    </script>
+    <div id="container">
       <div id="page">
-        <header id="nav_bar">
-          <i class="fa-solid fa-bars"></i>
-          <div class="search_cotainer">
-            <input
-              class="search_box"
-              type="text"
-              name="search"
-              id="search"
-              placeholder="search"
-            />
-            <button type="submit" class="search-btn">
-              <i class="fa-solid fa-magnifying-glass search_icon"></i>
-            </button>
-          </div>
-          <div class="profile">
-            <i class="fa-solid fa-bell notify_icon"></i>
-            <img src="../images/2.png" alt="" class="admin_photo" />
-          </div>
-        </header>
         <section id="the_page">
           <div id="myHeader">
             <h1>Dashboard</h1>
