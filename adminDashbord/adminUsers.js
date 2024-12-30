@@ -1,3 +1,8 @@
+const isUserAdmin = sessionStorage.getItem('isadmin');
+if (!isUserAdmin || isUserAdmin == 'false') {
+  window.location.href = '../products.html';
+}
+
 var xhr = new XMLHttpRequest();
 xhr.open('GET', `http://localhost:3000/users`);
 xhr.send();

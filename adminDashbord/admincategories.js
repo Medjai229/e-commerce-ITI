@@ -1,3 +1,8 @@
+const isUserAdmin = sessionStorage.getItem('isadmin');
+if (!isUserAdmin || isUserAdmin == 'false') {
+  window.location.href = '../products.html';
+}
+
 const categoryTable = document.getElementById('category_table');
 const categoryInput = document.getElementById('category_input');
 let categories;

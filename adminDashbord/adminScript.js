@@ -1,3 +1,8 @@
+const isUserAdmin = sessionStorage.getItem('isadmin');
+if (!isUserAdmin || isUserAdmin == 'false') {
+  window.location.href = '../products.html';
+}
+
 let allProducts;
 fetch('http://localhost:3000/products')
   .then((response) => response.json())
@@ -52,7 +57,7 @@ function getAllProducts(elem) {
                   <td class="centerText">${elem[i].stock}</td>
                   <td class="adit_delete centerText">
                     <button onclick="openPopUpUpdate('${elem[i].id}')">Edit</button>
-                    <button onclick="deleteProduct('${elem[i].id}')">Delete</button>
+                    <button class="delBttn"onclick="deleteProduct('${elem[i].id}')">Delete</button>
                   </td>
                 </tr>
                 
