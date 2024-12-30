@@ -84,7 +84,7 @@ function displayCart(cart) {
     const linkTitle = document.createElement('a');
     linkTitle.href = `details.html?id=${product.id}`;
     const title = document.createElement('h3');
-    title.classList.add('title');
+    linkTitle.classList.add('title');
     title.textContent = product.title;
     linkTitle.appendChild(title);
 
@@ -104,11 +104,15 @@ function displayCart(cart) {
     quantityInput.list = 'quantitylist';
     quantityInput.name = 'quantity';
     quantityInput.value = 1;
+    quantityInput.type = 'number';
     idCount[product.id] = product.price;
     quantityInput.addEventListener('change', (e) => {
       // console.log(e.target.value, product.price);
       if (parseInt(e.target.value) > parseInt(product.stock)) {
         e.target.value = product.stock;
+      }
+      if (parseInt(e.target.value) < 0) {
+        e.target.value = 0;
       }
       idCount[product.id] = e.target.value * product.price;
       calculateTotal();
@@ -154,7 +158,7 @@ function displayCart(cart) {
     productDiv.appendChild(quantity);
     productDiv.appendChild(br);
     productDiv.appendChild(category);
-    productDiv.appendChild(description);
+    // productDiv.appendChild(description);
     productDiv.appendChild(remove);
 
     cartItems.appendChild(productDiv);
