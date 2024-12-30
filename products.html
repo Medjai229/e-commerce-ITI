@@ -4,15 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Products</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="./productsStyle.css" />
   </head>
   <body>
-    <!-- * Header -->
+    <!--* Header -->
     <section id="header">
       <div id="logo-container">
         <a href="products.html"
@@ -34,9 +36,12 @@
           <li><a href="products.html">Home</a></li>
           <li><a href="category.html">Shop</a></li>
           <li><a href="orders.html">Orders</a></li>
-          <li><a href="#">Sign Out</a></li>
+          <li><a href="wishlist.html">Wish List</a></li>
           <li>
             <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
           </li>
         </ul>
       </nav>
@@ -47,7 +52,7 @@
       const userName = sessionStorage.getItem('fullname') || 'User';
       const welcomeMessage = document.getElementById('welcome-message');
       const isAdmin = sessionStorage.getItem('isadmin') || false;
-      console.log(isAdmin);
+      // console.log(isAdmin);
       if (isAdmin == 'true') {
         adminSwitch.removeAttribute('style');
       }
@@ -75,29 +80,26 @@
       crossorigin="anonymous"
     ></script>
     <section id="banner_image"></section>
-    <div id="category_product" style="display: flex;"> 
+    <div id="category_product" style="display: flex">
+      <div id="cat1">
+        <div></div>
+        <div></div>
+      </div>
 
-    <div id="cat1">
-      <div></div>
-      <div></div>
-    </div>
+      <div id="cat1">
+        <div></div>
+        <div></div>
+      </div>
 
-    <div id="cat1">
-      <div></div>
-      <div></div>
-    </div>
+      <div id="cat1">
+        <div></div>
+        <div></div>
+      </div>
 
-    <div id="cat1">
-      <div></div>
-      <div></div>
-    </div>
-
-    <div id="cat1">
-      <div></div>
-      <div></div>
-    </div>
-
-    
+      <div id="cat1">
+        <div></div>
+        <div></div>
+      </div>
     </div>
     <section id="product" class="section_p1">
       <div id="myProducts" class="product_container"></div>

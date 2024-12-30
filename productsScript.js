@@ -60,17 +60,23 @@ function display(products) {
     const productDiv = document.createElement('div');
     productDiv.classList.add('pro');
 
+    const imageLink = document.createElement('a');
+    imageLink.href = `details.html?id=${products[index].id}`;
     const image = document.createElement('img');
     image.src = products[index].image;
+    imageLink.appendChild(image);
 
     const proData = document.createElement('div');
     proData.classList.add('pro_data');
 
-    const span = document.createElement('span');
-    span.textContent = products[index].category;
-
+    const h5Link = document.createElement('a');
+    h5Link.href = `details.html?id=${products[index].id}`;
     const h5 = document.createElement('h5');
     h5.textContent = products[index].title;
+    h5Link.appendChild(h5);
+
+    const span = document.createElement('span');
+    span.textContent = products[index].category;
 
     const star = document.createElement('div');
     star.classList.add('star');
@@ -108,14 +114,14 @@ function display(products) {
     button.appendChild(cartIcon);
 
     proData.appendChild(span);
-    proData.appendChild(h5);
+    proData.appendChild(h5Link);
     proData.appendChild(star);
     proData.appendChild(priceCard);
     priceCard.appendChild(price);
     priceCard.appendChild(wishButton);
     priceCard.appendChild(button);
 
-    productDiv.appendChild(image);
+    productDiv.appendChild(imageLink);
     productDiv.appendChild(proData);
     allProductsDiv.appendChild(productDiv);
   }
@@ -157,7 +163,7 @@ function createStarRating(rating) {
 
   return starHtml;
 }
-function toWishList(id,e) {
+function toWishList(id, e) {
   const product = allProducts.find((p) => p.id == id);
   if (!wishList.includes(product.id)) {
     wishList.push(product.id);
@@ -168,7 +174,7 @@ function toWishList(id,e) {
     } else {
       sty = e.target;
     }
-    console.log(sty);
+    // console.log(sty);
     sty.style.backgroundColor = 'red';
   } else {
     wishList.splice(wishList.indexOf(product.id), 1);
@@ -179,7 +185,7 @@ function toWishList(id,e) {
     } else {
       sty = e.target;
     }
-     console.log(sty);
+    // console.log(sty);
     sty.style.backgroundColor = '#0049C6';
   }
 }

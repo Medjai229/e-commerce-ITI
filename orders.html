@@ -8,7 +8,7 @@
     <script src="orders.js" defer></script>
   </head>
   <body>
-    <!-- * Header -->
+    <!--* Header -->
     <section id="header">
       <div id="logo-container">
         <a href="products.html"
@@ -18,20 +18,38 @@
       </div>
       <nav>
         <ul id="navbar">
+          <li>
+            <a
+              href="./adminDashbord/admen.html"
+              style="display: none"
+              id="adminSwitch"
+              ><i class="fa-solid fa-user" style="margin-right: 8px"></i>Admin
+              Dashboard</a
+            >
+          </li>
           <li><a href="products.html">Home</a></li>
           <li><a href="category.html">Shop</a></li>
           <li><a href="orders.html">Orders</a></li>
-          <li><a href="#">Sign Out</a></li>
+          <li><a href="wishlist.html">Wish List</a></li>
           <li>
             <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
           </li>
         </ul>
       </nav>
     </section>
     <script>
       // Getting the user name to welcome
+      const adminSwitch = document.getElementById('adminSwitch');
       const userName = sessionStorage.getItem('fullname') || 'User';
       const welcomeMessage = document.getElementById('welcome-message');
+      const isAdmin = sessionStorage.getItem('isadmin') || false;
+      console.log(isAdmin);
+      if (isAdmin == 'true') {
+        adminSwitch.removeAttribute('style');
+      }
       if (userName) {
         welcomeMessage.textContent = `Welcome, ${userName}`;
       }
