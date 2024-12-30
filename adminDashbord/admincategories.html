@@ -8,6 +8,55 @@
     <script src="admincategories.js" defer></script>
   </head>
   <body>
+    <!-- * Header -->
+    <section id="header">
+      <div id="logo-container">
+        <a href="products.html"
+          ><img src="../images/f3m/2.png" alt="Logo" class="logo"
+        /></a>
+        <span id="welcome-message"></span>
+      </div>
+      <nav>
+        <ul id="navbar">
+          <li><a href="admen.html">Products</a></li>
+          <li><a href="admincategories.html">Categories</a></li>
+          <li><a href="adminUsers.html">Users</a></li>
+          <li><a href="adminOrders.html">Orders</a></li>
+          <li>
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <script>
+      // Getting the user name to welcome
+      const userName = sessionStorage.getItem('fullname') || 'User';
+      const welcomeMessage = document.getElementById('welcome-message');
+      if (userName) {
+        welcomeMessage.textContent = `Welcome, ${userName}`;
+      }
+
+      // Get the current page to highlight
+      const currentPath = window.location.pathname.split('/').pop(); // Extract filename
+      const navLinks = document.querySelectorAll('#navbar a');
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (
+          href === currentPath ||
+          (href === 'index.html' && currentPath === '')
+        ) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    </script>
+    <script
+      src="https://kit.fontawesome.com/3597cc1bad.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- * Catergories -->
     <div id="main">
       <h1>Admin Categories</h1>
       <div id="categories">

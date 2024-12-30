@@ -1,31 +1,96 @@
-/* #myHeader h1 {
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  color: #0049c6;
+:root {
+  --header-bg-color: #6c5dd3;
+  --highlight-color: #ffa2c0;
+  --text-color: white;
+  --font-weight-bold: 600;
+  --font-size: 16px;
+  --logo-size: 80px;
 }
 
-#myHeader .breadcrumb {
+/* Header Styling */
+#header {
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
-  margin-left: 10px;
-  grid-gap: 16px;
+  justify-content: space-between;
+  padding: 0 100px;
+  height: var(--logo-size);
+  background-color: var(--header-bg-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 
-#myHeader .breadcrumb li {
-  color: #0049c6;
+/* Logo and Welcome Message */
+#logo-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
-#myHeader .breadcrumb li a {
-  color: #6c5dd3;
-  pointer-events: none;
+.logo {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  object-fit: contain;
 }
-#myHeader .breadcrumb .breadcrumb li a.active {
-  color: #6c5dd3;
-  pointer-events: unset;
-} */
 
+#welcome-message {
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+}
+
+/* Navbar Styling */
+#navbar {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  list-style: none;
+}
+
+#navbar li a {
+  text-decoration: none;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+  color: var(--highlight-color);
+}
+
+/* Underline Effect */
+#navbar li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--highlight-color);
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+  width: 50%;
+}
+
+/* ! body styling  */
+body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #f4f1ef;
+  color: #332f2c;
+  line-height: 1.6;
+}
+
+/* * Users Styling */
 .category_products {
   display: flex;
   justify-content: flex-end;

@@ -17,7 +17,7 @@ function getAllProducts(elem) {
                 <tr>
                   <th>ID</th>
                   <th>Title</th>
-                  <th>Price</th>
+                  <th>Email</th>
                   <th>Admin</th>
                   <th>Action</th>
                 </tr>
