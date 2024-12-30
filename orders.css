@@ -105,6 +105,9 @@ body {
 }
 
 #orders-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: auto;
   text-align: center;
   margin-top: 20px;
@@ -128,10 +131,11 @@ body {
   transition: color 0.3s, text-decoration 0.3s;
 }
 
-.orders-link:hover {
+.orders-link:hover,
+.orders-link.active {
   color: #aec9f8;
   text-decoration: none;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid #0049c6;
 }
 
 #orders {
@@ -167,20 +171,20 @@ body {
   width: 90px;
   object-fit: contain;
   border-radius: 8px;
-  border: 2px solid #ffce73;
+  border: 2px solid #6d5dd4;
 }
 
 .product h4 {
   font-size: 18px;
   font-weight: bold;
-  color: #ffa15e;
+  color: #001231;
   margin: 0;
 }
 
 .product h5 {
   font-size: 14px;
   font-weight: normal;
-  color: #ffa15e;
+  color: #001231;
   margin: 0;
 }
 
@@ -189,12 +193,17 @@ body {
   margin-right: 15px;
   height: 50px;
   font-size: 18px;
-  color: #000;
-  border-radius: 5px;
-  background-color: #ffa15e;
+  background-color: #e5f1ff;
+  color: #0049c6;
+  padding: 8px 12px;
+  border: 1px solid #0049c6;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s;
 }
 
 .product .buttons:hover {
-  background-color: hsla(25, 100%, 68%, 0.3);
-  color: #000;
+  background-color: #0049c6;
+  color: white;
 }
