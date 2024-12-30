@@ -35,7 +35,9 @@
           <li><a href="adminUsers.html">Users</a></li>
           <li><a href="adminOrders.html">Orders</a></li>
           <li>
-            <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <a href="#" onclick="signOut()"
+              ><i class="fa-solid fa-right-from-bracket"></i
+            ></a>
           </li>
         </ul>
       </nav>
@@ -68,6 +70,10 @@
           link.classList.remove('active');
         }
       });
+      function signOut() {
+        sessionStorage.clear();
+        window.location.reload();
+      }
     </script>
     <script
       src="https://kit.fontawesome.com/3597cc1bad.js"
