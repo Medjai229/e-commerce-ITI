@@ -18,6 +18,12 @@
       </div>
       <nav>
         <ul id="navbar">
+          <li>
+            <a href="../products.html" style="display: none" id="storeSwitch"
+              ><i class="fa-solid fa-store" style="margin-right: 8px"></i>Return
+              to Store</a
+            >
+          </li>
           <li><a href="admen.html">Products</a></li>
           <li><a href="admincategories.html">Categories</a></li>
           <li><a href="adminUsers.html">Users</a></li>
@@ -30,7 +36,13 @@
     </section>
     <script>
       // Getting the user name to welcome
+      const storeSwitch = document.getElementById('storeSwitch');
       const userName = sessionStorage.getItem('fullname') || 'User';
+      const isAdmin = sessionStorage.getItem('isadmin') || false;
+      console.log(isAdmin);
+      if (isAdmin == 'true') {
+        storeSwitch.removeAttribute('style');
+      }
       const welcomeMessage = document.getElementById('welcome-message');
       if (userName) {
         welcomeMessage.textContent = `Welcome, ${userName}`;
