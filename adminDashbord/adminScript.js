@@ -35,25 +35,25 @@ function getAllProducts(elem) {
   <thead>
                 <tr>
                   <th>Title</th>
-                  <th>Price</th>
-                  <th>Rating</th>
+                  <th class="centerText">Price</th>
+                  <th class="centerText">Rating</th>
                   <th>Category</th>
-                  <th>Stock</th>
-                  <th>Action</th>
+                  <th class="centerText">Stock</th>
+                  <th class="centerText">Action</th>
                 </tr>
               </thead>`;
   for (let i = 0; i < elem.length; i++) {
     note += ` <tbody>
                 <tr>
-                  <td>${elem[i].title}</td>
-                  <td>${elem[i].price}</td>
-                  <td>${elem[i].rating.rate}</td>
+                  <td id="productTitle">${elem[i].title}</td>
+                  <td class="centerText">${elem[i].price}</td>
+                  <td class="centerText">${elem[i].rating.rate}</td>
                   <td>${elem[i].category}</td>
-                  <td>${elem[i].stock}</td>
-                  <th class="adit_delete">
+                  <td class="centerText">${elem[i].stock}</td>
+                  <td class="adit_delete centerText">
                     <button onclick="openPopUpUpdate('${elem[i].id}')">Edit</button>
                     <button onclick="deleteProduct('${elem[i].id}')">Delete</button>
-                  </th>
+                  </td>
                 </tr>
                 
               </tbody>`;

@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin DashBord</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./admenStyle.css" />
   </head>
   <body>
@@ -68,98 +74,75 @@
         window.location.reload();
       }
     </script>
-    <div id="container">
-      <div id="page">
-        <section id="the_page">
-          <div id="myHeader">
-            <h1>Dashboard</h1>
-            <ul class="breadcrumb">
-              <li>
-                <a href="#">Dashboard</a>
-              </li>
-              <i class="fa-solid fa-arrow-right"></i>
-              <li>
-                <a class="active" href="#">Home</a>
-              </li>
-            </ul>
-          </div>
-          <div class="category_products">
-            <button class="action-button" onclick="openPopUp()">
-              Add Products
-            </button>
-          </div>
 
-          <div class="table-container">
-            <div class="head">
-              <h3>Display All Products</h3>
-            </div>
-            <table id="product_table" class="styled-table"></table>
-          </div>
-          <div id="popup" class="popup">
-            <h2>Add Product</h2>
-            <label for="addtitle">Title</label>
-            <input type="text" id="addtitle" />
-            <span></span>
-            <br />
-            <br />
-            <label for="addprice">price</label>
-            <input type="text" id="addprice" />
-            <span></span>
-            <label for="category">category</label>
-            <input type="text" id="category" />
-            <span></span>
-            <label for="imgg">image</label>
-            <input type="file" id="img" />
-            <span></span>
-            <label for="descc">Description</label>
-            <input type="text" id="descc" />
-            <span></span>
-            <br />
-            <br />
-            <button class="close-btn" id="closePopupBtn" onclick="addProduct()">
-              Add
-            </button>
-            <button class="close-btn" id="backfrompop" onclick="closePopUp()">
-              Back
-            </button>
-          </div>
-          <div id="popupUpdate" class="popup">
-            <h2>Update Product</h2>
-            <label for="uptitle">Title</label>
-            <input type="text" id="uptitle" />
-            <span></span>
-            <br />
-            <br />
-            <label for="upprice">price</label>
-            <input type="text" id="upprice" />
-            <span></span>
-            <label for="rating">Rating</label>
-            <input type="number" id="ratting" />
-            <span></span>
-            <label for="catt">Category</label>
-            <input type="text" id="catt" />
-            <span></span>
-            <label for="stock">Stock</label>
-            <input type="number" id="stok" />
-            <span></span>
-            <br />
-            <br />
-            <button
-              class="close-btn"
-              id="closePopupBtn"
-              onclick="updatProduct()"
-            >
-              Update
-            </button>
-            <button
-              class="close-btn"
-              id="backfrompopupdate"
-              onclick="closePopUpUpdate()"
-            >
-              Back
-            </button>
-          </div>
-        </section>
+    <!-- * Admin Products -->
+    <div id="container">
+      <div class="category_products">
+        <h3>All Products</h3>
+
+        <button class="action-button" onclick="openPopUp()">
+          Add Products
+        </button>
+      </div>
+
+      <div class="table-container">
+        <table id="product_table" class="styled-table"></table>
+      </div>
+      <div id="popup" class="popup">
+        <h2>Add Product</h2>
+        <label for="addtitle">Title</label>
+        <input type="text" id="addtitle" />
+        <span></span>
+        <label for="addprice">Price</label>
+        <input type="text" id="addprice" />
+        <span></span>
+        <label for="category">Category</label>
+        <input type="text" id="category" />
+        <span></span>
+        <label for="img">Image</label>
+        <input type="file" id="img" />
+        <span></span>
+        <label for="descc">Description</label>
+        <input type="text" id="descc" />
+        <span></span>
+        <div class="popUpBttns">
+          <button class="close-btn" id="closePopupBtn" onclick="addProduct()">
+            Add
+          </button>
+          <button class="close-btn" id="backfrompop" onclick="closePopUp()">
+            Back
+          </button>
+        </div>
+      </div>
+      <div id="popupUpdate" class="popup">
+        <h2>Update Product</h2>
+        <label for="uptitle">Title</label>
+        <input type="text" id="uptitle" />
+        <span></span>
+        <label for="upprice">Price</label>
+        <input type="text" id="upprice" />
+        <span></span>
+        <label for="rating">Rating</label>
+        <input type="number" id="ratting" />
+        <span></span>
+        <label for="catt">Category</label>
+        <input type="text" id="catt" />
+        <span></span>
+        <label for="stock">Stock</label>
+        <input type="number" id="stok" />
+        <span></span>
+        <div class="popUpBttns">
+          <button class="close-btn" id="closePopupBtn" onclick="updatProduct()">
+            Update
+          </button>
+          <button
+            class="close-btn"
+            id="backfrompopupdate"
+            onclick="closePopUpUpdate()"
+          >
+            Back
+          </button>
+        </div>
       </div>
     </div>
 
