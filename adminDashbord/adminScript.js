@@ -3,15 +3,17 @@ fetch('http://localhost:3000/products')
   .then((response) => response.json())
   .then((data) => {
     allProducts = data;
+    console.log(allProducts);
+
     getAllProducts(allProducts);
   })
   .catch((error) => console.error('Error fetching product list:', error));
 
-function lastid(ele) {
-  var id_num = ele[ele.length - 1].id;
-  console.log(id_num);
-  return id_num;
-}
+// function lastid(ele) {
+//   var id_num = ele[ele.length - 1].id;
+//   console.log(id_num);
+//   return id_num;
+// }
 
 // function addCategory() {
 //   var post = new XMLHttpRequest();
@@ -27,6 +29,8 @@ function lastid(ele) {
 // }
 
 function getAllProducts(elem) {
+  console.log(elem);
+
   var note = `  
   <thead>
                 <tr>
@@ -47,8 +51,8 @@ function getAllProducts(elem) {
                   <td>${elem[i].category}</td>
                   <td>${elem[i].stock}</td>
                   <th class="adit_delete">
-                    <button onclick="openPopUpUpdate(${elem[i].id})">Edit</button>
-                    <button onclick="deleteProduct(${elem[i].id})">Delete</button>
+                    <button onclick="openPopUpUpdate('${elem[i].id}')">Edit</button>
+                    <button onclick="deleteProduct('${elem[i].id}')">Delete</button>
                   </th>
                 </tr>
                 
@@ -58,7 +62,6 @@ function getAllProducts(elem) {
 }
 
 function addProduct(e) {
-  var post = new XMLHttpRequest();
   const titleRegex = /^[A-Za-z][A-Za-z0-9 _&-]{2,49}$/;
   const categoryRegex = /^[A-Za-z ]{3,30}$/;
   const priceRegex = /^(0|[1-9]\d*)(\.\d{1,2})?$/;
@@ -69,15 +72,12 @@ function addProduct(e) {
   const inpImage = document.getElementById('img').value;
   const inpDesc = document.getElementById('descc').value;
 
-  post.open('POST', `http://localhost:3000/products`);
-  post.setRequestHeader('Content-Type', 'application/json');
-
-  if (!titleRegex.test(inpTitle)) {
-    document.getElementById('addtitle').nextElementSibling.innerHTML =
-      'Invalid title: must start with a letter, be 3-50 characters, and can contain letters, numbers, spaces, _, &, or -.';
-  } else {
-    document.getElementById('addtitle').nextElementSibling.innerHTML = '';
-  }
+  // if (!titleRegex.test(inpTitle)) {
+  //   document.getElementById('addtitle').nextElementSibling.innerHTML =
+  //     'Invalid title: must start with a letter, be 3-50 characters, and can contain letters, numbers, spaces, _, &, or -.';
+  // } else {
+  //   document.getElementById('addtitle').nextElementSibling.innerHTML = '';
+  // }
 
   if (!priceRegex.test(inpPrice)) {
     document.getElementById('addprice').nextElementSibling.innerHTML =
@@ -86,12 +86,12 @@ function addProduct(e) {
     document.getElementById('addprice').nextElementSibling.innerHTML = '';
   }
 
-  if (!categoryRegex.test(inpCategory)) {
-    document.getElementById('category').nextElementSibling.innerHTML =
-      'Invalid category: must be 3-30 characters and contain only letters and spaces.';
-  } else {
-    document.getElementById('category').nextElementSibling.innerHTML = '';
-  }
+  // if (!categoryRegex.test(inpCategory)) {
+  //   document.getElementById('category').nextElementSibling.innerHTML =
+  //     'Invalid category: must be 3-30 characters and contain only letters and spaces.';
+  // } else {
+  //   document.getElementById('category').nextElementSibling.innerHTML = '';
+  // }
 
   if (inpDesc == '' || inpDesc.length > 500) {
     document.getElementById('descc').nextElementSibling.innerHTML =
@@ -101,28 +101,43 @@ function addProduct(e) {
   }
 
   if (
-    titleRegex.test(inpTitle) &&
+    // titleRegex.test(inpTitle) &&
     priceRegex.test(inpPrice) &&
-    categoryRegex.test(inpCategory) &&
+    // categoryRegex.test(inpCategory) &&
     inpDesc &&
     inpDesc.length <= 500
   ) {
-    const data = JSON.stringify({
-      id: Number(localStorage.getItem('id')) + 1 + '',
-      title: inpTitle,
-      price: inpPrice,
-      description: inpDesc,
-      category: inpCategory,
-      image: inpImage,
-      stock: 0,
-      rating: {
-        rate: 0,
-        count: 0,
-      },
-    });
+    // const data = JSON.stringify({
+    //   id: Number(localStorage.getItem('id')) + 1 + '',
+    //   title: inpTitle,
+    //   price: inpPrice,
+    //   description: inpDesc,
+    //   category: inpCategory,
+    //   image: inpImage,
+    //   stock: 0,
+    //   rating: {
+    //     rate: 0,
+    //     count: 0,
+    //   },
+    // });
 
-    post.send(data);
-    console.log('oooooo');
+    fetch('http://localhost:3000/products', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: inpTitle,
+        price: inpPrice,
+        description: inpDesc,
+        category: inpCategory,
+        image: inpImage,
+        stock: 0,
+        rating: {
+          rate: 0,
+          count: 0,
+        },
+      }),
+      headers: { 'Content-type': 'application/json' },
+    }).then((response) => response.json());
+    // console.log('oooooo');
     popup.style.visibility = 'hidden';
   }
 }
@@ -134,12 +149,32 @@ function openPopUp() {
 }
 
 function openPopUpUpdate(id) {
+  console.log(id);
+
   popUpUpdate.style.visibility = 'visible';
   localStorage.setItem('id', id);
+  // get the old values from alproducts by id and put it in the input fields
+
+  const oldProduct = allProducts.find((product) => product.id == id);
+  const oldValues = {
+    title: oldProduct.title,
+    price: oldProduct.price,
+    category: oldProduct.category,
+    rating: oldProduct.rating,
+    stock: oldProduct.stock,
+  };
+  document.getElementById('uptitle').value = oldValues.title;
+  document.getElementById('upprice').value = oldValues.price;
+  document.getElementById('catt').value = oldValues.category;
+  document.getElementById('ratting').value = oldValues.rating.rate;
+  document.getElementById('stok').value = oldValues.stock;
 }
 
 function updatProduct() {
   var upId = localStorage.getItem('id');
+
+  // get the product from allproduct
+  const oldProduct = allProducts.find((product) => product.id == upId);
   var upXhr = new XMLHttpRequest();
   upXhr.open('PUT', `http://localhost:3000/products/${upId}`);
   /////////////////////////////////////
@@ -158,12 +193,12 @@ function updatProduct() {
   const upRating = document.getElementById('ratting').value;
   const upStoxk = document.getElementById('stok').value;
   /////////////
-  if (!titleRegex.test(upTitle)) {
-    document.getElementById('uptitle').nextElementSibling.innerHTML =
-      'Invalid title: must start with a letter, be 3-50 characters, and can contain letters, numbers, spaces, _, &, or -.';
-  } else {
-    document.getElementById('uptitle').nextElementSibling.innerHTML = '';
-  }
+  // if (!titleRegex.test(upTitle)) {
+  //   document.getElementById('uptitle').nextElementSibling.innerHTML =
+  //     'Invalid title: must start with a letter, be 3-50 characters, and can contain letters, numbers, spaces, _, &, or -.';
+  // } else {
+  //   document.getElementById('uptitle').nextElementSibling.innerHTML = '';
+  // }
 
   if (!priceRegex.test(upPrice)) {
     document.getElementById('upprice').nextElementSibling.innerHTML =
@@ -188,7 +223,7 @@ function updatProduct() {
 
   //////////////////////////////
   if (
-    titleRegex.test(upTitle) &&
+    // titleRegex.test(upTitle) &&
     priceRegex.test(upPrice) &&
     categoryRegex.test(upCategory) &&
     ratingRegex.test(upRating)
@@ -197,17 +232,17 @@ function updatProduct() {
       id: upId + '',
       title: upTitle,
       price: upPrice,
-      description: '',
+      description: oldProduct.description,
       category: upCategory,
-      image: '',
+      image: oldProduct.image,
 
       stock: upStoxk,
       rating: {
-        rate: 3.6,
+        rate: upRating,
         count: 145,
       },
     });
-
+    localStorage.removeItem('id');
     upXhr.send(data);
     console.log('oooooo');
     popup.style.visibility = 'hidden';
