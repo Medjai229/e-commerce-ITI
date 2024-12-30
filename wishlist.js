@@ -96,12 +96,12 @@ function displayWishList(wishList) {
       // console.log(wishList);
     });
 
-    const br = document.createElement('br');
+    // const br = document.createElement('br');
 
     productDiv.appendChild(linkImg);
     productDiv.appendChild(linkTitle);
     productDiv.appendChild(price);
-    productDiv.appendChild(br);
+    // productDiv.appendChild(br);
     productDiv.appendChild(category);
     productDiv.appendChild(description);
     productDiv.appendChild(remove);

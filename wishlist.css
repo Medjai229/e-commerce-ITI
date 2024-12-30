@@ -96,6 +96,7 @@ body {
   font-size: 60px;
   text-align: center;
   margin: 0 auto;
+  color: #0049c6;
 }
 #wishlist {
   width: 50px;
@@ -116,8 +117,11 @@ body {
 }
 .wishlistitem {
   border: 1px solid #0049c6;
-  width: 90%;
-  margin: 0 auto;
+  border-radius: 20px;
+  width: 80%;
+  margin: 10px auto;
+  background-color: #e5f1ff;
+  padding: 20px;
 }
 
 .image {
@@ -130,4 +134,26 @@ body {
 .price {
   margin: 0 auto;
   display: block;
+}
+.wishlistitem a {
+  text-decoration: none;
+  color: #6c5dd3;
+}
+.remove {
+  background-color: #0049c6;
+  color: white;
+  border: 1px solid #0049c6;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.3s;
+  margin: 0 auto;
+  display: block;
+  width: 20%;
+  min-width: 100px;
+}
+.remove:hover {
+  border: 1px solid #eb2424;
+  background-color: #eb2424;
+  color: white;
 }
