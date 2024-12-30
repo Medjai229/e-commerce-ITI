@@ -17,15 +17,31 @@ var ordersHeaders = document.querySelectorAll('.orders-link');
 
 ordersHeaders[0].addEventListener('click', () => {
   showPending();
+  ordersHeaders[0].classList.add('active');
+  ordersHeaders[1].classList.remove('active');
+  ordersHeaders[2].classList.remove('active');
+  ordersHeaders[3].classList.remove('active');
 });
 ordersHeaders[1].addEventListener('click', () => {
   showAccepted();
+  ordersHeaders[0].classList.remove('active');
+  ordersHeaders[1].classList.add('active');
+  ordersHeaders[2].classList.remove('active');
+  ordersHeaders[3].classList.remove('active');
 });
 ordersHeaders[2].addEventListener('click', () => {
   showRejected();
+  ordersHeaders[0].classList.remove('active');
+  ordersHeaders[1].classList.remove('active');
+  ordersHeaders[2].classList.add('active');
+  ordersHeaders[3].classList.remove('active');
 });
 ordersHeaders[3].addEventListener('click', () => {
   showPrevious();
+  ordersHeaders[0].classList.remove('active');
+  ordersHeaders[1].classList.remove('active');
+  ordersHeaders[2].classList.remove('active');
+  ordersHeaders[3].classList.add('active');
 });
 
 // Pending products
@@ -53,7 +69,7 @@ async function showPending() {
 
       const rejectBttn = document.createElement('button');
       rejectBttn.setAttribute('id', `reject-${ordersData[i].id}`);
-      rejectBttn.setAttribute('class', 'buttons');
+      rejectBttn.setAttribute('class', 'buttons nextBttn');
       rejectBttn.addEventListener('click', rejectOrder);
       rejectBttn.textContent = 'Reject';
 
