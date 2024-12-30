@@ -103,7 +103,7 @@ function display(products) {
     const cartIcon = document.createElement('i');
     cartIcon.classList.add('fa-solid', 'fa-cart-shopping', 'cart');
     if (cart.includes(products[index].id)) {
-      cartIcon.style.backgroundColor = '0049C6';
+      cartIcon.style.backgroundColor = '#02C77D';
     }
     button.appendChild(cartIcon);
 
