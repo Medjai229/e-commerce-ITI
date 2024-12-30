@@ -28,6 +28,7 @@ function displayCategories() {
 
     const updateButton = document.createElement('button');
     updateButton.textContent = 'Update';
+    catUpdate.classList.add('update-button');
     updateButton.addEventListener('click', () => {
       updateCategory(newNameInput.value, category);
     });
@@ -35,6 +36,7 @@ function displayCategories() {
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
+    catDelete.classList.add('delete-button');
     deleteButton.addEventListener('click', () => {
       deleteCategory(category);
     });

@@ -91,10 +91,55 @@ body {
 }
 
 /* * Cateogry styling */
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: left;
+#main {
+  background-color: white;
+  /* color: purple; */
+  padding: 20px;
+  border-radius: 8px;
+}
+#main h1 {
+  color: #0049c6;
+}
+#main button {
+  background-color: #e5f1ff;
+  color: #0049c6;
+  border: 1px solid #0049c6;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.3s;
+}
+#main button:hover {
+  background-color: #0049c6;
+  color: white;
+}
+#add_category {
+  background-color: #0049c6 !important;
+  color: white !important;
+}
+#main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+#main th,
+#main td {
+  border: 1px solid white;
   padding: 8px;
-  color: black;
+}
+
+#main th {
+  /* text-align: left; */
+  background-color: #6c5dd3;
+  color: white;
+}
+.head {
+  text-align: center;
+}
+
+.update-button {
+  text-align: center;
+}
+.delete-button {
+  text-align: center;
 }

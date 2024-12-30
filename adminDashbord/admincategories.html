@@ -68,22 +68,23 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- * Catergories -->
+    <!-- * Categories -->
     <div id="main">
       <h1>Admin Categories</h1>
       <div id="categories">
-        <input type="text" id="category_input" />
+        <input type="text" id="category_input" placeholder="Add Category" />
+        <br />
         <button id="add_category" onclick="addCategory()">
           Add new Category
         </button>
         <table id="category_table">
           <thead>
             <tr>
-              <th>Category ID</th>
-              <th>Category Name</th>
-              <th>Category New Name</th>
-              <th>Update</th>
-              <th>Delete</th>
+              <th class="head">Category ID</th>
+              <th class="head">Category Name</th>
+              <th class="head">Category New Name</th>
+              <th class="head">Update</th>
+              <th class="head">Delete</th>
             </tr>
           </thead>
         </table>
