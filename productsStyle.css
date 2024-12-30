@@ -103,7 +103,7 @@ body {
 }
 /* syling banner_image */
 #banner_image {
-  background-color: #F2B66D;
+  background-color: #f26d6d;
   background-image: url('images/A1.jpg');
   background-size: 100%;
   width: 100%;
@@ -146,10 +146,18 @@ body {
   margin: 15px 0;
   position: relative;
   float: left;
+  transition: transform 0.5s ease-in-out, box-shadow 0.3s ease;
+}
+
+.detailslink{
+  text-decoration: none;
+  overflow: hidden;
 }
 
 #product .pro:hover {
   box-shadow: 20px 20px 30px rgba(40, 1, 76, 0.3);
+  transform: scale(1.02);
+
 }
 
 #product .pro img {
