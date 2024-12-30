@@ -10,21 +10,37 @@ const categoryFilter = document.getElementById('categories-select');
 if (categoryQuery) {
   categoryQuery = categoryQuery.split('?')[1].split('=')[1];
   categoryQuery = decodeURIComponent(categoryQuery);
+  // console.log(categoryQuery);
 }
+
 let allProducts;
-fetch('http://localhost:3000/products')
+const categories = [];
+
+fetch('http://localhost:3000/category')
   .then((response) => response.json())
   .then((data) => {
-    allProducts = data;
-    if (categoryQuery) {
-      console.log(categoryQuery);
-      categoryFilter.value = categoryQuery.toString();
-      filterItems();
-    } else {
-      display(allProducts);
+    for (let cat of data) {
+      categories.push(cat.name);
+      const catSel = document.createElement('option');
+      catSel.textContent = cat.name;
+      catSel.value = cat.name;
+      categoriesSelect.appendChild(catSel);
     }
   })
-  .catch((error) => console.error('Error fetching product list:', error));
+  .then(() =>
+    fetch('http://localhost:3000/products')
+      .then((response) => response.json())
+      .then((data) => {
+        allProducts = data;
+        if (categoryQuery) {
+          categoryFilter.value = categoryQuery.toString();
+          filterItems();
+        } else {
+          display(allProducts);
+        }
+      })
+      .catch((error) => console.error('Error fetching product list:', error))
+  );
 
 let cart = [];
 if (localStorage.getItem('cart')) {
@@ -42,18 +58,6 @@ if (localStorage.getItem('wishList')) {
   wishList = [];
 }
 
-const categories = [];
-fetch('http://localhost:3000/category')
-  .then((response) => response.json())
-  .then((data) => {
-    for (let cat of data) {
-      categories.push(cat.name);
-      const catSel = document.createElement('option');
-      catSel.textContent = cat.name;
-      catSel.value = cat.name;
-      categoriesSelect.appendChild(catSel);
-    }
-  });
 function display(products) {
   for (let index = 0; index < products.length; index++) {
     // !redesign the button so it starts green if in cart
@@ -181,8 +185,9 @@ function filterItems() {
     rating: ratingFilter.value,
     category: categoryFilter.value,
   };
-  allProductsDiv.innerHTML = '';
   // console.log(objFilter);
+
+  allProductsDiv.innerHTML = '';
   // const defaultFilter = {
   //   price: ['0', '1000'],
   //   rating: 'all',

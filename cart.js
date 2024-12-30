@@ -173,12 +173,12 @@ function calculateTotal() {
 }
 
 function checkout() {
-  const customerId = sessionStorage.getItem('id') || 1024;
+  const customerId = sessionStorage.getItem('id');
   // !Enable login
-  // if (!customerId) {
-  //   open('login.html', '_self');
-  //   return;
-  // }
+  if (!customerId) {
+    open('login.html', '_self');
+    return;
+  }
   const date = new Date();
   for (let item of cart) {
     // console.log(item);
