@@ -15,11 +15,11 @@ function getAllProducts(elem) {
   var note = `  
               <thead> 
                 <tr>
-                  <th>ID</th>
-                  <th>Title</th>
+                  <th class="centerText">User ID</th>
+                  <th>Fullname</th>
                   <th>Email</th>
-                  <th>Admin</th>
-                  <th>Action</th>
+                  <th class="centerText">Admin</th>
+                  <th class="centerText">Action</th>
                 </tr>
               </thead>`;
   for (let i = 0; i < elem.length; i++) {
@@ -27,13 +27,13 @@ function getAllProducts(elem) {
     // ! in line 35 match the class name with the button
     note += ` <tbody>
                 <tr>
-                  <td>${elem[i].id}</td>
+                  <td class="centerText boldText">${elem[i].id}</td>
                   <td>${elem[i].fullname}</td>
                   <td>${elem[i].email}</td>
-                  <td>${elem[i].isAdmin}</td>
-                  <th class="adit_delete">
+                  <td class="centerText boldText">${elem[i].isAdmin}</td>
+                  <td class="adit_delete">
                     <button onclick= "changeRole(event)">Change Role</button>
-                  </th>
+                  </td>
                 </tr>
               </tbody>`;
   }
