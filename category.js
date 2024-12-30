@@ -97,6 +97,7 @@ function display(products) {
     span.textContent = products[index].category;
 
     const h5Link = document.createElement('a');
+    h5Link.classList.add('detailslink');
     h5Link.href = `details.html?id=${products[index].id}`;
     const h5 = document.createElement('h5');
     h5.textContent = products[index].title;

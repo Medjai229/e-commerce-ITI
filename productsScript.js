@@ -70,6 +70,7 @@ function display(products) {
     proData.classList.add('pro_data');
 
     const h5Link = document.createElement('a');
+    h5Link.classList.add('detailslink');
     h5Link.href = `details.html?id=${products[index].id}`;
     const h5 = document.createElement('h5');
     h5.textContent = products[index].title;
