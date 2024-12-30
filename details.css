@@ -82,7 +82,7 @@
 
 /* * Orders Style */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', serif;
   padding: 0;
   margin: 0;
   background-color: #f4f1ef;
@@ -109,21 +109,73 @@ body {
 .price {
   float: left;
 }
+.title {
+  font-size: 27px;
+  color: #0049c6;
+}
+.cartitem {
+  padding: 30px;
+}
 .addtocart {
-  background-color: lightgreen;
+  background-color: #0049c6;
+  color: white;
   border: none;
-  width: 95%;
-  height: 30px;
-  display: block;
+  width: 20%;
+  min-width: 100px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.3s;
   margin-left: auto;
   margin-right: auto;
 }
 .removefromcart {
-  background-color: lightcoral;
+  background-color: #eb2424;
+  color: white;
   border: none;
-  width: 95%;
-  height: 30px;
-  display: block;
+  width: 20%;
+  min-width: 100px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.3s;
   margin-left: auto;
   margin-right: auto;
+}
+.addtowish {
+  background-color: #ffa2c0;
+  color: white;
+  border: none;
+  width: 20%;
+  min-width: 100px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.3s;
+  margin-left: auto;
+  margin-right: auto;
+}
+.removefromwish {
+  background-color: #eb2424;
+  color: white;
+  border: none;
+  width: 20%;
+  min-width: 100px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.3s;
+  margin-left: auto;
+  margin-right: auto;
+}
+.buttons {
+  display: flex;
 }

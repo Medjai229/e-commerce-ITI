@@ -16,6 +16,14 @@ const id = location.search.split('?')[1].split('=')[1];
 httpId.open('GET', 'https://fakestoreapi.com/products/' + id);
 httpId.send();
  */
+let wishList;
+
+// * Get wishList from local storage
+if (localStorage.getItem('wishList')) {
+  wishList = JSON.parse(localStorage.getItem('wishList'));
+} else {
+  wishList = [];
+}
 
 // * Get product from json-server file
 let productList;
@@ -59,6 +67,7 @@ function displayItem(product) {
   const br = document.createElement('br');
 
   const addToCart = document.createElement('button');
+
   if (cart.includes(product.id)) {
     addToCart.textContent = 'Remove from cart';
     addToCart.classList.remove('addtocart');
@@ -84,14 +93,46 @@ function displayItem(product) {
     }
   });
 
+  const wishButton = document.createElement('button');
+  if (wishList.includes(product.id)) {
+    wishButton.textContent = 'Remove from wishlist';
+    wishButton.classList.remove('addtowish');
+    wishButton.classList.add('removefromwish');
+  } else {
+    wishButton.textContent = 'Add to wishlist';
+    wishButton.classList.remove('removefromwish');
+    wishButton.classList.add('addtowish');
+  }
+  wishButton.addEventListener('click', () => {
+    if (wishList.includes(product.id)) {
+      wishList.splice(wishList.indexOf(product.id), 1);
+      localStorage.setItem('wishList', JSON.stringify(wishList));
+      wishButton.textContent = 'Add to wishlist';
+      wishButton.classList.remove('removefromwish');
+      wishButton.classList.add('addtowish');
+    } else {
+      wishList.push(product.id);
+      localStorage.setItem('wishList', JSON.stringify(wishList));
+      wishButton.textContent = 'Remove from wishlist';
+      wishButton.classList.remove('addtowish');
+      wishButton.classList.add('removefromwish');
+    }
+  });
+
+  const buttonsDiv = document.createElement('div');
+  buttonsDiv.classList.add('buttons');
+
+  buttonsDiv.appendChild(addToCart);
+  buttonsDiv.appendChild(wishButton);
+
   productDiv.appendChild(image);
   productDiv.appendChild(title);
   productDiv.appendChild(price);
   productDiv.appendChild(br);
   productDiv.appendChild(category);
   productDiv.appendChild(description);
-  productDiv.appendChild(br);
-  productDiv.appendChild(addToCart);
+  // productDiv.appendChild(br);
+  productDiv.appendChild(buttonsDiv);
 
   main.appendChild(productDiv);
 }
