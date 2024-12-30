@@ -38,7 +38,7 @@ async function showPending() {
   for (var i = 0; i < ordersData.length; i++) {
     if (
       ordersData[i].status === 'pending' &&
-      ordersData[i].customerId === 1024
+      ordersData[i].customerId === userId
     ) {
       const product = await getProduct(ordersData[i].productId);
       const productDiv = document.createElement('div');
