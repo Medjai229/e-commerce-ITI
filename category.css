@@ -8,7 +8,6 @@ body {
   font-weight: 500;
   padding: 0;
   margin: 0;
-  background-color: #f4f1ef;
   color: #332f2c;
   line-height: 1.6;
 }
@@ -98,19 +97,13 @@ body {
   width: 50%;
 }
 
-/* syling banner_image */
-#banner {
+#banner{
   background-image: url('images/v1.jpg');
+  height: 0px;
   width: 100%;
-  height: 1000vh;
+  height: 65vh;
   background-size: 100%;
-  background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  margin-top: 20px;
 }
 
 /* styling products */
@@ -237,7 +230,7 @@ font-weight: 750;}
 }
 
 #banner {
-  height: 310px;
+  height: 700px;
   width: 100%;
 }
 #banner img {
