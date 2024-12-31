@@ -94,5 +94,58 @@ border-width:0;
 
 
 
+#error{
+    padding: 5px;
+    left: 100px;
+    position: absolute;
+    width: 250px;
+    top: 655px;
+    background-color: #fdccc7f6;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #ff3e28;
+}
 
 
+#eroorpass {
+
+    padding: 5px;
+    left: 82px;
+    position: absolute;
+    width: 275px;
+    top: 560px;
+    background-color: #fdccc7f6;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #ff3e28;
+}
+
+
+
+
+#error_email{
+    padding: 5px;
+    left: 82px;
+    position: absolute;
+    width: 275px;
+    top: 354px;
+    background-color: #fdccc7f6;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #ff3e28
+
+}
+
+
+#fname_error{
+    padding: 5px;
+    left: 82px;
+    position: absolute;
+    width: 170px;
+    top: 235px;
+    background-color: #fdccc7f6;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #ff3e28
+
+}

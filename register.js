@@ -4,7 +4,10 @@ const pass = document.getElementById('passreg');
 const confirmPass = document.getElementById('confirmPass');
 const bttn = document.getElementById('register');
 const registerForm = document.getElementById('registerForm');
-document.getElementById("error")
+const errorsubmit=document.getElementById("error")
+const error_pass =document.getElementById("eroorpass")
+const error_email =document.getElementById("error_email")
+const fname_error =document.getElementById("fname_error")
 
 let userData = { isAdmin: false };
 let nameRegex = /^([a-zA-Z]{3,}[\u0020])+[a-zA-Z]{3,}$/;
@@ -15,6 +18,8 @@ let passRegex =
 fullName.addEventListener('blur', () => {
   if (!nameRegex.test(fullName.value)) {
     console.log("Full name doesn't match");
+    fname_error.innerHTML="invalid Nmae"
+
   } else {
     userData.fullname = fullName.value;
     console.log(userData);
@@ -24,6 +29,8 @@ fullName.addEventListener('blur', () => {
 email.addEventListener('blur', () => {
   if (!mailRegex.test(email.value)) {
     console.log("Email doesn't match");
+    error_email.innerHTML="invalid Email"
+
   } else {
     userData.email = email.value;
     console.log(userData);
@@ -33,11 +40,15 @@ email.addEventListener('blur', () => {
 pass.addEventListener('blur', () => {
   if (!passRegex.test(pass.value)) {
     console.log("Password doesn't match");
+    error_pass.innerHTML="invalid password"
+
   }
 });
 
 confirmPass.addEventListener('blur', () => {
   if (pass.value !== confirmPass.value) {
+    error_pass.innerHTML="Please write the same password"
+
     console.log('Please write the same password');
   } else {
     userData.password = confirmPass.value;
@@ -54,10 +65,15 @@ registerForm.addEventListener('submit', async (e) => {
     !passRegex.test(pass.value) ||
     pass.value != confirmPass.value
   ) {
+    errorsubmit.innerHTML = "Please enter valid data"
+    
     console.log('Make sure all the fields are valid');
   } else if (userExists) {
     console.log('This user already exists');
   } else {
+    errorsubmit.innerHTML =""
+    errorsubmit.style.padding="0"
+
     postUser(userData);
     registerForm.submit();
   }
@@ -84,3 +100,5 @@ function postUser(data) {
       console.log(data);
     });
 }
+
+
