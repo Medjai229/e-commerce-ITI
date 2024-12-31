@@ -230,7 +230,8 @@ font-weight: 750;}
 }
 
 #banner {
-  height: 700px;
+  background-size: cover;
+  height: 80vh;
   width: 100%;
 }
 #banner img {

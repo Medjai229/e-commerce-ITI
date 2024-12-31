@@ -2,7 +2,7 @@
 
 body {
     font-family: "Poppins", serif;
-    font-weight: 900;
+    font-weight: bolder;
     font-style: normal; 
     margin:25px 50px 25px 50px; 
 }
@@ -14,7 +14,7 @@ body {
 position: relative;
 z-index: 99999;
 width: 50%;
-height: 665px;  /*use vh */
+height: 100vh;  /*use vh */
 background-color: #6c5dd3;
 float: left;
 background-size: 150%;
@@ -34,7 +34,7 @@ background-blend-mode: color-burn;
 
 .right_page{
 width: 50%;
-height: 665px;
+height: 100vh;
 background-color: rgb(23, 97, 209);
 float: right;
 background-image: url(images/ilgmyzin-CbxZV0kebOA-unsplash.jpg); 
