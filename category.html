@@ -6,9 +6,12 @@
     <title>Category</title>
     <link rel="stylesheet" href="./category.css" />
     <script src="./category.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!--* Header -->
@@ -38,7 +41,9 @@
             <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
           </li>
           <li>
-            <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <a href="products.html" onclick="signOut()"
+              ><i class="fa-solid fa-right-from-bracket"></i
+            ></a>
           </li>
         </ul>
       </nav>
@@ -71,6 +76,10 @@
           link.classList.remove('active');
         }
       });
+      function signOut() {
+        sessionStorage.clear();
+        window.location.reload();
+      }
     </script>
     <script
       src="https://kit.fontawesome.com/3597cc1bad.js"
@@ -79,7 +88,7 @@
     <div id="banner">
       <!-- <img src="images/v1.jpg" width="100%" /> -->
     </div>
-    <br /><br>
+    <br /><br />
     <div id="right">
       <section id="product" class="section_p1">
         <div id="myProducts" class="product_container"></div>
@@ -89,23 +98,22 @@
       <section id="category" class="section_p1">
         <div id="myCategories"></div>
       </section>
-      <h3  style="color: #e5f1ff;">Categories :</h3>
-      <ul  style="  list-style-type: none;
-">
+      <h3 style="color: #e5f1ff">Categories :</h3>
+      <ul style="list-style-type: none">
         <li>
           <br />
           <select name="categories" id="categories-select">
             <option value="all">All</option>
           </select>
         </li>
-<br>
+        <br />
         <li>
           By price range<br />
           <input type="text" id="price-range-small" value="0" />
           <span>to</span>
           <input type="text" id="price-range-big" value="1000" />
         </li>
-        <br>
+        <br />
         <li>
           By rating<br />
           <select name="rating" id="rating-select">
@@ -117,7 +125,7 @@
           </select>
         </li>
       </ul>
-      <br>
+      <br />
       <button id="apply-filters" onclick="filterItems()">Apply Filters</button>
       <br />
       <button id="reset-filters" onclick="resetItems()">Reset Filters</button>
