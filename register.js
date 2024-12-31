@@ -4,6 +4,7 @@ const pass = document.getElementById('passreg');
 const confirmPass = document.getElementById('confirmPass');
 const bttn = document.getElementById('register');
 const registerForm = document.getElementById('registerForm');
+document.getElementById("error")
 
 let userData = { isAdmin: false };
 let nameRegex = /^([a-zA-Z]{3,}[\u0020])+[a-zA-Z]{3,}$/;

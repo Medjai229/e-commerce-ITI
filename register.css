@@ -10,7 +10,7 @@ body{
     position: relative;
     z-index: 99999;
     width: 50%;
-    height: 680px;
+    height: 93vh;
     background-color: #6c5dd3;
     float: left;
 }
@@ -19,7 +19,7 @@ body{
 #left_page_registr{
 position: absolute;
 left: 22%;
-bottom:5%;
+bottom:8%;
 width: 59%;
 margin: auto;
 margin-top: 100px;
@@ -33,7 +33,7 @@ color: rgb(255, 255, 255);
 
 #right_register{
 width: 50%;
-height: 680px;
+height: 93vh;
 background-color: rgb(23, 97, 209);
 float: right;
 background-image: url(images/04\ copy.jpg); 
@@ -42,7 +42,7 @@ background-size: 100%;
 
 #fullName {
 font-size:19px;
-width: 370px;
+width: 450px;
 height: 40px;
 outline: none;
 border-radius: 5px;
@@ -51,7 +51,7 @@ border-width:0;
 
 #email {
 font-size:19px;
-width: 370px;
+width: 450px;
 height: 40px;
 outline: none;
 border-radius: 5px;
@@ -59,7 +59,7 @@ border-width:0;
 }
 
 #passreg{
-width: 370px;
+width: 450px;
 height: 40px;
 outline: none;
 outline: none;
@@ -68,7 +68,7 @@ border-width:0;
 }
 
 #confirmPass {
-width: 370px;
+width: 450px;
 height: 40px;
 outline: none;
 outline: none;
@@ -77,7 +77,7 @@ border-width:0;
 }
 
 #register {
-width: 377px;
+width: 450px;
 height: 42px;
 font-size: 22px;
 background-color: #FFCE73;
