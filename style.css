@@ -4,7 +4,7 @@ body {
     font-family: "Poppins", serif;
     font-weight: bolder;
     font-style: normal; 
-    margin:25px 50px 25px 50px; 
+    margin:19px 30px 19px 30px; 
 }
 *{
     margin: 0;
@@ -14,7 +14,7 @@ body {
 position: relative;
 z-index: 99999;
 width: 50%;
-height: 100vh;  /*use vh */
+height: 665px;  /*use vh */
 background-color: #6c5dd3;
 float: left;
 background-size: 150%;
@@ -34,7 +34,7 @@ background-blend-mode: color-burn;
 
 .right_page{
 width: 50%;
-height: 100vh;
+height: 665px;
 background-color: rgb(23, 97, 209);
 float: right;
 background-image: url(images/ilgmyzin-CbxZV0kebOA-unsplash.jpg); 
