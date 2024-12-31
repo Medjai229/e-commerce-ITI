@@ -2,7 +2,7 @@ body{
     font-family: "Poppins", serif;
     font-weight: 800;
     font-style: normal; 
-    margin:25px 50px 25px 50px; 
+    margin:20px 40px 20px 40px; 
 }
 
 
@@ -10,7 +10,7 @@ body{
     position: relative;
     z-index: 99999;
     width: 50%;
-    height: 665px;
+    height: 680px;
     background-color: #6c5dd3;
     float: left;
 }
@@ -33,7 +33,7 @@ color: rgb(255, 255, 255);
 
 #right_register{
 width: 50%;
-height: 665px;
+height: 680px;
 background-color: rgb(23, 97, 209);
 float: right;
 background-image: url(images/04\ copy.jpg); 

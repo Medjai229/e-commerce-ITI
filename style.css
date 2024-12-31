@@ -4,7 +4,7 @@ body {
     font-family: "Poppins", serif;
     font-weight: bolder;
     font-style: normal; 
-    margin:19px 30px 19px 30px; 
+    margin:20px 40px 20px 40px; 
 }
 *{
     margin: 0;
@@ -14,7 +14,7 @@ body {
 position: relative;
 z-index: 99999;
 width: 50%;
-height: 665px;  /*use vh */
+height: 680px;  /*use vh */
 background-color: #6c5dd3;
 float: left;
 background-size: 150%;
@@ -34,7 +34,7 @@ background-blend-mode: color-burn;
 
 .right_page{
 width: 50%;
-height: 665px;
+height: 680px;
 background-color: rgb(23, 97, 209);
 float: right;
 background-image: url(images/ilgmyzin-CbxZV0kebOA-unsplash.jpg); 
@@ -86,36 +86,55 @@ button {
     clear: both;
 }
 
+/* #mailmsg_error {
+    position: absolute;
+    -webkit-text-fill-color: rgb(230, 39, 39);
+    -webkit-text-stroke: 0.5px rgb(255, 255, 255);
+    letter-spacing: 0.9px;
+
+    top: 235px;
+    background-color: #fdccc7f6; 
+    font-weight: 900;
+    border-radius: 5px;
+    font-size:19px ;
+
+ }  */
+
 #mailmsg_error {
     position: absolute;
     top: 241px;
-    background-color: #E35241;
-    font-weight: 400;
-    color: rgb(255, 255, 255);
+    background-color: #fdccc7f6; 
+    font-weight: 500;
+    border-radius: 5px;
+    color: #ff3e28; 
 }
+
+
 
 #password_error{
     position: absolute;
     top: 355px;
-    background-color: #E35241;
-    font-weight: 400;
-    color: rgb(255, 255, 255);
+    background-color: #fdccc7f6;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #ff3e28;
 }
 
 
 #submition_error{
-
+    height: 32px;
     position: absolute;
     top: 447px;
-    left: 18px;
-    background-color: #E35241;
-    font-weight: 400;
-    color: rgb(255, 255, 255);
-
-}
+    color: #ff3e28;
+    font-weight: 500;
+    background-color: #fdccc7f6;
+    border-radius: 5px;
+    
+ }
 
 
 form label {
+    color: aliceblue;
 margin-bottom: 100px;
 margin-bottom: 100px;}
 
