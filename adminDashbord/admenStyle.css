@@ -336,3 +336,8 @@ span {
   color: #6c5dd3;
   font-size: 17px;
 }
+
+.popup span,
+.popupupdate span {
+  font-size: 12px;
+}

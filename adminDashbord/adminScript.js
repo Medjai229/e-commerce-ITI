@@ -8,7 +8,7 @@ fetch('http://localhost:3000/products')
   .then((response) => response.json())
   .then((data) => {
     allProducts = data;
-    console.log(allProducts);
+    // console.log(allProducts);
 
     getAllProducts(allProducts);
   })
@@ -34,7 +34,7 @@ fetch('http://localhost:3000/products')
 // }
 
 function getAllProducts(elem) {
-  console.log(elem);
+  // console.log(elem);
 
   var note = `  
   <thead>
@@ -67,9 +67,9 @@ function getAllProducts(elem) {
 }
 
 function addProduct(e) {
-  const titleRegex = /^[A-Za-z][A-Za-z0-9 _&-]{2,49}$/;
-  const categoryRegex = /^[A-Za-z ]{3,30}$/;
-  const priceRegex = /^(0|[1-9]\d*)(\.\d{1,2})?$/;
+  const titleRegex = /^[A-Za-z][A-Za-z0-9 _&-]{2,}$/;
+  const categoryRegex = /^[A-Za-z ]{3,}$/;
+  const priceRegex = /^(0|[1-9]\d*)(\.\d{1,})?$/;
   const ratingRegex = /^([0-4](\.\d)?|5(\.0)?)$/;
   const inpTitle = document.getElementById('addtitle').value;
   const inpPrice = document.getElementById('addprice').value;
@@ -77,12 +77,12 @@ function addProduct(e) {
   const inpImage = document.getElementById('img').value;
   const inpDesc = document.getElementById('descc').value;
 
-  // if (!titleRegex.test(inpTitle)) {
-  //   document.getElementById('addtitle').nextElementSibling.innerHTML =
-  //     'Invalid title: must start with a letter, be 3-50 characters, and can contain letters, numbers, spaces, _, &, or -.';
-  // } else {
-  //   document.getElementById('addtitle').nextElementSibling.innerHTML = '';
-  // }
+  if (!titleRegex.test(inpTitle)) {
+    document.getElementById('addtitle').nextElementSibling.innerHTML =
+      'Invalid title: must start with a letter, be 3-50 characters, and can contain letters, numbers, spaces, _, &, or -.';
+  } else {
+    document.getElementById('addtitle').nextElementSibling.innerHTML = '';
+  }
 
   if (!priceRegex.test(inpPrice)) {
     document.getElementById('addprice').nextElementSibling.innerHTML =
@@ -91,12 +91,12 @@ function addProduct(e) {
     document.getElementById('addprice').nextElementSibling.innerHTML = '';
   }
 
-  // if (!categoryRegex.test(inpCategory)) {
-  //   document.getElementById('category').nextElementSibling.innerHTML =
-  //     'Invalid category: must be 3-30 characters and contain only letters and spaces.';
-  // } else {
-  //   document.getElementById('category').nextElementSibling.innerHTML = '';
-  // }
+  if (!categoryRegex.test(inpCategory)) {
+    document.getElementById('category').nextElementSibling.innerHTML =
+      'Invalid category: must be 3-30 characters and contain only letters and spaces.';
+  } else {
+    document.getElementById('category').nextElementSibling.innerHTML = '';
+  }
 
   if (inpDesc == '' || inpDesc.length > 500) {
     document.getElementById('descc').nextElementSibling.innerHTML =
@@ -106,9 +106,9 @@ function addProduct(e) {
   }
 
   if (
-    // titleRegex.test(inpTitle) &&
+    titleRegex.test(inpTitle) &&
     priceRegex.test(inpPrice) &&
-    // categoryRegex.test(inpCategory) &&
+    categoryRegex.test(inpCategory) &&
     inpDesc &&
     inpDesc.length <= 500
   ) {
@@ -154,7 +154,7 @@ function openPopUp() {
 }
 
 function openPopUpUpdate(id) {
-  console.log(id);
+  // console.log(id);
 
   popUpUpdate.style.visibility = 'visible';
   localStorage.setItem('id', id);
@@ -184,9 +184,9 @@ function updatProduct() {
   upXhr.open('PUT', `http://localhost:3000/products/${upId}`);
   /////////////////////////////////////
   //////////////////////////////////
-  const titleRegex = /^[A-Za-z][A-Za-z0-9 _&-]{2,49}$/;
-  const categoryRegex = /^[A-Za-z ]{3,30}$/;
-  const priceRegex = /^(0|[1-9]\d*)(\.\d{1,2})?$/;
+  const titleRegex = /^[A-Za-z][A-Za-z0-9 _&-]{3,}$/;
+  const categoryRegex = /^[A-Za-z ]{3,}$/;
+  const priceRegex = /^(0|[1-9]\d*)(\.\d{1,})?$/;
   const ratingRegex = /^([0-4](\.\d)?|5(\.0)?)$/;
 
   ///////////////////////////////
@@ -198,12 +198,12 @@ function updatProduct() {
   const upRating = document.getElementById('ratting').value;
   const upStoxk = document.getElementById('stok').value;
   /////////////
-  // if (!titleRegex.test(upTitle)) {
-  //   document.getElementById('uptitle').nextElementSibling.innerHTML =
-  //     'Invalid title: must start with a letter, be 3-50 characters, and can contain letters, numbers, spaces, _, &, or -.';
-  // } else {
-  //   document.getElementById('uptitle').nextElementSibling.innerHTML = '';
-  // }
+  if (!titleRegex.test(upTitle)) {
+    document.getElementById('uptitle').nextElementSibling.innerHTML =
+      'Invalid title: must start with a letter, be 3-50 characters, and can contain letters, numbers, spaces, _, &, or -.';
+  } else {
+    document.getElementById('uptitle').nextElementSibling.innerHTML = '';
+  }
 
   if (!priceRegex.test(upPrice)) {
     document.getElementById('upprice').nextElementSibling.innerHTML =
@@ -228,7 +228,7 @@ function updatProduct() {
 
   //////////////////////////////
   if (
-    // titleRegex.test(upTitle) &&
+    titleRegex.test(upTitle) &&
     priceRegex.test(upPrice) &&
     categoryRegex.test(upCategory) &&
     ratingRegex.test(upRating)
@@ -249,7 +249,7 @@ function updatProduct() {
     });
     localStorage.removeItem('id');
     upXhr.send(data);
-    console.log('oooooo');
+    // console.log('oooooo');
     popup.style.visibility = 'hidden';
   }
 }

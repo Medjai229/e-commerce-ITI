@@ -5,6 +5,7 @@ if (!isUserAdmin || isUserAdmin == 'false') {
 
 const categoryTable = document.getElementById('category_table');
 const categoryInput = document.getElementById('category_input');
+const warnSpan = document.getElementById('warn');
 let categories;
 fetch('http://localhost:3000/category')
   .then((response) => response.json())
@@ -50,9 +51,19 @@ function displayCategories() {
 }
 
 function addCategory() {
-  if (!categoryInput.value.trim()) {
+  if (!categoryInput.value.trim() || categoryInput.value.length < 3) {
+    warnSpan.textContent = 'Category must be 3 characters or longer';
+    warnSpan.style.visibility = 'visible';
     return;
   }
+
+  if (categories.find((cat) => cat.name === categoryInput.value)) {
+    warnSpan.textContent = 'Category already exists';
+    warnSpan.style.visibility = 'visible';
+    return;
+  }
+
+  warnSpan.style.visibility = 'hidden';
   const newCategory = {
     name: categoryInput.value,
   };
