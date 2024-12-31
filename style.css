@@ -14,7 +14,7 @@ body {
 position: relative;
 z-index: 99999;
 width: 50%;
-height: 680px;  /*use vh */
+height: 93vh;  /*use vh */
 background-color: #6c5dd3;
 float: left;
 background-size: 150%;
@@ -22,19 +22,19 @@ background-blend-mode: color-burn;
 
 }
 #left_page_content {
-   /* background-color: #FFCE73;*/
     position: absolute;
     left: 22%;
-    bottom:6%;
+    bottom:13%;
     width: 59%;
     margin: auto;
-    margin-top: 100px;
+
+    margin-top: 20px;
     
 }
 
 .right_page{
 width: 50%;
-height: 680px;
+height: 93vh;
 background-color: rgb(23, 97, 209);
 float: right;
 background-image: url(images/ilgmyzin-CbxZV0kebOA-unsplash.jpg); 
@@ -44,21 +44,22 @@ background-size: 100%;
 
 #mail{
     font-size:19px;
-    width: 370px;
-    height: 40px;
+    width: 450px;
+    height: 50px;
     outline: none;
 }
 
 #pass{
-width: 370px;
-height: 40px;
+font-size:19px;
+width: 450px;
+height: 50px;
 outline: none;
 }
     
 #log_in{
 
-width: 377px;
-height: 42px;
+width: 450px;
+height: 52px;
 font-size: 22px;
 background-color: #FFCE73;
 border: none;
@@ -102,7 +103,7 @@ button {
 
 #mailmsg_error {
     position: absolute;
-    top: 241px;
+    top: 285px;
     background-color: #fdccc7f6; 
     font-weight: 500;
     border-radius: 5px;
@@ -113,7 +114,7 @@ button {
 
 #password_error{
     position: absolute;
-    top: 355px;
+    top: 440px;
     background-color: #fdccc7f6;
     font-weight: 500;
     border-radius: 5px;
@@ -124,7 +125,7 @@ button {
 #submition_error{
     height: 32px;
     position: absolute;
-    top: 447px;
+    top: 564px;
     color: #ff3e28;
     font-weight: 500;
     background-color: #fdccc7f6;
@@ -135,7 +136,7 @@ button {
 
 form label {
     color: aliceblue;
-margin-bottom: 100px;
+margin-bottom: 140px;
 margin-bottom: 100px;}
 
 #heading {
